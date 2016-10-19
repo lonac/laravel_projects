@@ -64,3 +64,10 @@ $factory->define(App\Phone::class, function (Faker\Generator $faker) {
         'number' => $faker->e164PhoneNumber,
     ];
 });
+
+$factory->define(App\Email::class, function (Faker\Generator $faker) {
+    return [
+        'church_id' => $faker->numberBetween(1, 20),
+        'address' => $faker->companyEmail,
+    ];
+});
