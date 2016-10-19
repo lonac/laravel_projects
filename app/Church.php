@@ -16,5 +16,10 @@ class Church extends Model
     public function district()
     {
     	return $this->belongsTo('App\District');
+    }
+
+    public function phones()
+    {
+    	return $this->hasMany('App\Phone');
     }    
 }
