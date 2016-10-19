@@ -22,4 +22,9 @@ class Church extends Model
     {
     	return $this->hasMany('App\Phone');
     }    
+
+    public function emails()
+    {
+        return $this->hasMany('App\Email');
+    }
 }
