@@ -36,7 +36,21 @@
                     <h3 class="panel-title">Similar Churches</h3>
                 </div>
                 <div class="panel-body">
-                    Panel content
+                    <table class="table table-hover">
+                        <tbody>
+                            @if($churches->count() > 0)
+                                @foreach($churches as $church)
+                                    <tr>
+                                        <td><a href="{{ url('churches/' . $church->slug) }}">{{ $church->name }}</a></td>
+                                    </tr>
+                                @endforeach
+                            @else
+                                <p class="text-center">
+                                    Empty
+                                </p>
+                            @endif
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
