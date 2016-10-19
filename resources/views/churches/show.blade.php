@@ -32,6 +32,18 @@
                         Null
                     @endif
                 </p>
+                <h2>Email(s)</h2>
+                <p>
+                    @if($church->emails->count() > 0)
+                        <ul>
+                            @foreach($church->emails as $email)
+                                <li>{{ $email->address }}</li>
+                            @endforeach
+                        </ul>
+                    @else
+                        Null
+                    @endif
+                </p>                
                 <h2>Address</h2>
                 <p>
                     {{ $church->address }}
