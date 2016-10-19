@@ -17,7 +17,7 @@ class ChurchController extends Controller
      */
     public function index()
     {
-        $churches = Church::with(['region', 'district'])->paginate(12);
+        $churches = Church::with(['region', 'district', 'category'])->paginate(12);
         return view('churches.index', compact('churches'));
     }
 

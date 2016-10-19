@@ -38,7 +38,7 @@ $factory->define(App\District::class, function (Faker\Generator $faker) {
     $slug = str_slug($name, '-');
 
     return [
-        'region_id' => $faker->numberBetween(1, 26),
+        'region_id' => $faker->numberBetween(1, 2),
         'name' => $name,
         'slug' => $slug,
     ];
@@ -49,25 +49,26 @@ $factory->define(App\Church::class, function (Faker\Generator $faker) {
     $slug = str_slug($name, '-');
     return [
         'name' => $name,
-        'region_id' => $faker->numberBetween(1, 26),
-        'district_id' => $faker->numberBetween(1, 8),
+        'region_id' => $faker->numberBetween(1, 2),
+        'district_id' => $faker->numberBetween(1, 2),
         'description' => $faker->paragraph(4, true),
         'other_name'    => $faker->realText(70),
         'address'   => $faker->address,
         'slug' => $slug,
+        'category_id' => $faker->numberBetween(1, 2),
     ];
 });
 
 $factory->define(App\Phone::class, function (Faker\Generator $faker) {
     return [
-        'church_id' => $faker->numberBetween(1, 20),
+        'church_id' => $faker->numberBetween(1, 2),
         'number' => $faker->e164PhoneNumber,
     ];
 });
 
 $factory->define(App\Email::class, function (Faker\Generator $faker) {
     return [
-        'church_id' => $faker->numberBetween(1, 20),
+        'church_id' => $faker->numberBetween(1, 2),
         'address' => $faker->companyEmail,
     ];
 });
