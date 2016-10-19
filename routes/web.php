@@ -56,3 +56,5 @@ Route::resource('churches', 'ChurchController');
 Route::resource('regions', 'RegionController');
 
 Route::resource('districts', 'DistrictController');
+
+Route::resource('categories', 'CategoryController');
