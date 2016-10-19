@@ -17,6 +17,7 @@
                 <li><a href="{{ url('churches') }}">Browse</a></li>
                 <li><a href="{{ url('regions') }}">Regions</a></li>
                 <li><a href="{{ url('districts') }}">Districts</a></li>
+                <li><a href="{{ url('categories') }}">Categories</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="{{ url('home') }}">Home</a></li>
