@@ -27,4 +27,9 @@ class Church extends Model
     {
         return $this->hasMany('App\Email');
     }
+
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
+    }
 }
