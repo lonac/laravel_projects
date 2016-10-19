@@ -12,4 +12,9 @@ class Region extends Model
     {
     	return $this->hasMany('App\District');
     }
+
+    public function churches()
+    {
+    	return $this->hasMany('App\Church');
+    }
 }
