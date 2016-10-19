@@ -19,7 +19,8 @@ class DistrictController extends Controller
      */
     public function index()
     {
-        //
+        $districts = District::with('churches')->get();
+        return view('districts.index', compact('districts'));
     }
 
     /**
