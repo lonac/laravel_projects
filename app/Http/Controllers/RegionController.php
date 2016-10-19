@@ -19,7 +19,8 @@ class RegionController extends Controller
      */
     public function index()
     {
-        //
+        $regions = Region::with('churches')->get();
+        return view('regions.index', compact('regions'));
     }
 
     /**
