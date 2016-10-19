@@ -71,3 +71,13 @@ $factory->define(App\Email::class, function (Faker\Generator $faker) {
         'address' => $faker->companyEmail,
     ];
 });
+
+$factory->define(App\Category::class, function (Faker\Generator $faker) {
+    $name = $faker->word;
+    $slug = str_slug($name, '-');
+
+    return [
+        'name' => $name,
+        'slug' => $slug,
+    ];
+});
