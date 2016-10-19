@@ -12,4 +12,9 @@ class District extends Model
     {
     	return $this->belongsTo('App\Region');
     }
+
+    public function churches()
+    {
+    	return $this->hasMany('App\Church');
+    }    
 }

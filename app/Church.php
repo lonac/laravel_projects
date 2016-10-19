@@ -12,4 +12,9 @@ class Church extends Model
     {
     	return $this->belongsTo('App\Region');
     }
+
+    public function district()
+    {
+    	return $this->belongsTo('App\District');
+    }    
 }
