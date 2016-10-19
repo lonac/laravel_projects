@@ -53,7 +53,8 @@ class RegionController extends Controller
     {
         $region = Region::whereSlug($slug)->firstOrFail();
         $churches = Church::whereRegionId($region->id)->paginate(12);
-        return view('regions.show', compact('region', 'churches'));
+        $regions = Region::all();
+        return view('regions.show', compact('region', 'churches', 'regions'));
     }
 
     /**
