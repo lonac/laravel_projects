@@ -12,6 +12,10 @@
                 <p>
                     {{ $church->description }}
                 </p>
+                <h2>Category</h2>
+                <p>
+                    {{ $church->category->name }}
+                </p>
                 <h2>Region</h2>
                 <p>
                     {{ $church->region->name }}

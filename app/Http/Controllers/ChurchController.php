@@ -50,7 +50,7 @@ class ChurchController extends Controller
      */
     public function show($slug)
     {
-        $church = Church::with(['region', 'district', 'phones', 'emails'])->whereSlug($slug)->first();
+        $church = Church::with(['region', 'district', 'phones', 'emails', 'category'])->whereSlug($slug)->first();
         // TODO exclude the current church
         $churches = Church::whereRegionId($church->region->id)->get();
         return view('churches.show', compact('church', 'churches'));
