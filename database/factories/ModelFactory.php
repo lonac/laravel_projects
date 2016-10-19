@@ -32,3 +32,14 @@ $factory->define(App\Region::class, function (Faker\Generator $faker) {
         'slug' => $slug,
     ];
 });
+
+$factory->define(App\District::class, function (Faker\Generator $faker) {
+    $name = $faker->city;
+    $slug = str_slug($name, '-');
+
+    return [
+        'region_id' => $faker->numberBetween(1, 26),
+        'name' => $name,
+        'slug' => $slug,
+    ];
+});
