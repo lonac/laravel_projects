@@ -22,3 +22,13 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Region::class, function (Faker\Generator $faker) {
+    $name = $faker->state;
+    $slug = str_slug($name, '-');
+
+    return [
+        'name' => $name,
+        'slug' => $slug,
+    ];
+});
