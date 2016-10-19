@@ -8,6 +8,13 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><b>Account Login</b></div>
                 <div class="panel-body">
+
+                    @if(Session::has('success'))
+                        {{ Session::get('success') }}
+                    @else
+                        No session data
+                    @endif
+
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 

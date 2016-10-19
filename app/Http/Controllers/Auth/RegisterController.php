@@ -94,7 +94,7 @@ class RegisterController extends Controller
         // $this->guard()->login($user);
         return redirect()->to('login')
 
-            ->with('success',"We sent activation code. Please check your mail.");        
+            ->with('success',"We sent activation code. Please check your mail to activate your account.");        
 
         return redirect($this->redirectPath());
     }    
