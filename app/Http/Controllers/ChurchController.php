@@ -48,9 +48,10 @@ class ChurchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $church = Church::with(['region', 'district'])->whereSlug($slug)->first();
+        return view('churches.show', compact('church'));
     }
 
     /**

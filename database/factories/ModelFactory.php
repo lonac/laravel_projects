@@ -45,10 +45,15 @@ $factory->define(App\District::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Church::class, function (Faker\Generator $faker) {
+    $name = $faker->realText(100);
+    $slug = str_slug($name, '-');
     return [
-        'name' => $faker->realText(100),
+        'name' => $name,
         'region_id' => $faker->numberBetween(1, 26),
         'district_id' => $faker->numberBetween(1, 8),
         'description' => $faker->paragraph(4, true),
+        'other_name'    => $faker->realText(70),
+        'address'   => $faker->address,
+        'slug' => $slug,
     ];
 });

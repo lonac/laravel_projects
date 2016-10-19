@@ -2,8 +2,6 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Church;
-
 class ChurchesTableSeeder extends Seeder
 {
     /**
@@ -13,7 +11,7 @@ class ChurchesTableSeeder extends Seeder
      */
     public function run()
     {
-        Church::truncate();
+        DB::table('churches')->delete();
         factory(App\Church::class, 20)->create();
     }
 }

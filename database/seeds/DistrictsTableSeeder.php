@@ -2,8 +2,6 @@
 
 use Illuminate\Database\Seeder;
 
-use App\District;
-
 class DistrictsTableSeeder extends Seeder
 {
     /**
@@ -13,7 +11,7 @@ class DistrictsTableSeeder extends Seeder
      */
     public function run()
     {
-    	District::truncate();
+    	DB::table('districts')->delete();
         factory(App\District::class, 26)->create();
     }
 }
