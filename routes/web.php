@@ -57,3 +57,5 @@ Route::resource('districts', 'DistrictController');
 Route::resource('categories', 'CategoryController');
 
 Route::resource('events', 'EventController');
+
+Route::get('account/profile', 'UserController@show');
