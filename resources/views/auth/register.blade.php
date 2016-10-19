@@ -17,32 +17,32 @@
                     <legend><b><font color="red">Register for Free!</font></legend>
                     Personal details</b>
                     <div class="form-group">
-                        <label for="first name" class="col-lg-3 control-label">First Name</label>
+                        <label for="name" class="col-lg-3 control-label">Name</label>
                         <div class="col-lg-7">
-                            <input type="text" class="form-control" id="fname" placeholder="First Name" name="fname" value="{{ old('name') }}">
+                            <input type="text" class="form-control" id="name" placeholder="Name" name="name" value="{{ old('name') }}">
                         </div>
                     </div>
 
-                    <div class="form-group">
+{{--                     <div class="form-group">
                         <label for="last name" class="col-lg-3 control-label">Last Name</label>
                         <div class="col-lg-7">
                             <input type="text" class="form-control" id="lname" placeholder="Last Name" name="lname" value="{{ old('name') }}">
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="form-group">
+{{--                     <div class="form-group">
                         <label for="name" class="col-lg-3 control-label">Other name</label>
                         <div class="col-lg-7">
                             <input type="text" class="form-control" id="Oname" placeholder="Also known as" name="Oname" value="{{ old('name') }}">
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="form-group">
+{{--                     <div class="form-group">
                         <label for="name" class="col-lg-3 control-label">Phone Number</label>
                         <div class="col-lg-7">
                             <input type="number" class="form-control" id="name" placeholder="phone number" name="phonenumber1" value="{{ old('name') }}">
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="form-group">
                         <label for="email" class="col-lg-3 control-label">Email</label>
