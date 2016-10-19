@@ -20,6 +20,18 @@
                 <p>
                     {{ $church->district->name }}
                 </p>
+                <h2>Phone(s)</h2>
+                <p>
+                    @if($church->phones->count() > 0)
+                        <ul>
+                            @foreach($church->phones as $phone)
+                                <li>{{ $phone->number }}</li>
+                            @endforeach
+                        </ul>
+                    @else
+                        Null
+                    @endif
+                </p>
                 <h2>Address</h2>
                 <p>
                     {{ $church->address }}
