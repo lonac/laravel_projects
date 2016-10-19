@@ -43,3 +43,12 @@ $factory->define(App\District::class, function (Faker\Generator $faker) {
         'slug' => $slug,
     ];
 });
+
+$factory->define(App\Church::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->realText(100),
+        'region_id' => $faker->numberBetween(1, 26),
+        'district_id' => $faker->numberBetween(1, 8),
+        'description' => $faker->paragraph(4, true),
+    ];
+});
