@@ -1,0 +1,10 @@
+//photo
+#imagenav
+	{
+		height: 450px;
+		width: 400px;
+		margin-left: 0px;			
+		margin-right: auto;
+		margin-top: 5px;
+		background-image: url("/home/malongo/Desktop/church4.jpg");
+	}
