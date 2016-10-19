@@ -88,13 +88,13 @@ class RegisterController extends Controller
 
         $user = $this->create($request->all());
 
+        $this->guard()->login($user);
+
         UserVerification::generate($user);
         UserVerification::send($user, 'My Custom E-mail Subject');
 
-        // $this->guard()->login($user);
-        return redirect()->to('login')
-
-            ->with('success',"We sent activation code. Please check your mail to activate your account.");        
+        return redirect()->to('home')
+            ->with('success',"We sent activation code. Please check your mail to activate your account.");               
 
         return redirect($this->redirectPath());
     }    
