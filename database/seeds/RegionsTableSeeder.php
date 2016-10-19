@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Region;
+
 class RegionsTableSeeder extends Seeder
 {
     /**
@@ -11,6 +13,7 @@ class RegionsTableSeeder extends Seeder
      */
     public function run()
     {
+    	Region::truncate();
         factory(App\Region::class, 26)->create();
     }
 }
