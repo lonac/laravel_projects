@@ -18,12 +18,10 @@
                 <li><a href="{{ url('regions') }}">Regions</a></li>
                 <li><a href="{{ url('districts') }}">Districts</a></li>
                 <li><a href="{{ url('categories') }}">Categories</a></li>
+                <li><a href="{{ url('events') }}">Events</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="{{ url('home') }}">Home</a></li>
-                <li><a href="{{ url('about') }}">About</a></li>
-                <li><a href="{{ url('contact') }}">Contact</a></li>
-                <li><a href="{{ url('events') }}">Events</a></li>
+                <li class="active"><a href="{{ url('home') }}">Dashboard</a></li>
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li><a href="{{ url('/users/login') }}">Login</a></li>

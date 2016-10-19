@@ -30,9 +30,6 @@ Route::get('/weekly','PagesController@weekly');
 Route::get('/churchdet','PagesController@churchdet');
 
 
-//events
-Route::get('/event','PagesController@event');
-
 //
 Auth::routes();
 
@@ -58,3 +55,5 @@ Route::resource('regions', 'RegionController');
 Route::resource('districts', 'DistrictController');
 
 Route::resource('categories', 'CategoryController');
+
+Route::resource('events', 'EventController');
