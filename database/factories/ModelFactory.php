@@ -57,3 +57,10 @@ $factory->define(App\Church::class, function (Faker\Generator $faker) {
         'slug' => $slug,
     ];
 });
+
+$factory->define(App\Phone::class, function (Faker\Generator $faker) {
+    return [
+        'church_id' => $faker->numberBetween(1, 20),
+        'number' => $faker->e164PhoneNumber,
+    ];
+});
