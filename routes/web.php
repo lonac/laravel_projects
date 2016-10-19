@@ -52,3 +52,5 @@ Route::get('email-verification/error', 'Auth\RegisterController@getVerificationE
 Route::get('email-verification/check/{token}', 'Auth\RegisterController@getVerification')->name('email-verification.check');
 
 Route::resource('churches', 'ChurchController');
+
+Route::resource('regions', 'RegionController');
