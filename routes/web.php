@@ -43,3 +43,5 @@ Route::post('users/register', 'Auth\RegisterController@register');
 Route::get('users/login', 'Auth\LoginController@showLoginForm');
 
 Route::post('users/login', 'Auth\LoginController@login');
+
+Route::get('home', 'HomeController@index');
