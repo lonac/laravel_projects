@@ -16,6 +16,10 @@ use App\Category;
 
 use Auth;
 
+use App\Phone;
+
+use App\Email;
+
 class ChurchController extends Controller
 {
     /**
@@ -50,6 +54,7 @@ class ChurchController extends Controller
             'name' => 'required|unique:churches|max:255',
         ]);
         $request->session()->put('name', $request->input('name')); 
+       
         return redirect('church/region');
     }
 
@@ -75,7 +80,7 @@ class ChurchController extends Controller
         $this->validate($request, [
             'region' => 'required', 
         ]);        
-        $request->session()->put('region', $request->input('region'));     
+        $request->session()->put('region', $request->input('region'));              
         return redirect('church/district');
     }
 
@@ -121,7 +126,21 @@ class ChurchController extends Controller
         ]);        
         $request->session()->put('phone', $request->input('phone'));         
         $request->session()->put('email', $request->input('email'));         
-        return redirect('church/category');
+        return redirect('church/address');
+    }
+
+    public function address()
+    {
+        return view('churches.address');
+    }
+
+    public function addressStore(Request $request)
+    {
+        $this->validate($request, [
+            'address' => 'required', 
+        ]);
+        $request->session()->put('address', $request->input('address'));                  
+        return redirect('church/category');        
     }
 
     public function category()
@@ -146,10 +165,9 @@ class ChurchController extends Controller
 
     public function otherNameStore(Request $request)
     {
-        // $this->validate($request, [
-        //     'other_name' => 'min:255',
-        // ]);    
+
         $request->session()->put('other_name', $request->input('other_name'));  
+
         
         $church = new Church();
         $name = $request->session()->pull('name', 'default');
@@ -162,12 +180,27 @@ class ChurchController extends Controller
         $church->district_id = $district;
         $description = $request->session()->pull('description', 'default');
         $church->description = $description;
-        $address = $request->session()->pull('address', 'default');
+        $address = $request->session()->pull('address', 'default');        
         $church->address = $address;
         $category = $request->session()->pull('category', 'default');
         $church->category_id = $category;
+        $other_name = $request->session()->pull('other_name', 'default');
+        $church->other_name = $other_name;        
         $church->user_id = Auth::user()->id;
+
         $church->save();
+
+        $phone = $request->session()->pull('phone', 'default');
+        Phone::create([
+            'number' => $phone,
+            'church_id' => $church->id,
+        ]);
+
+        $email = $request->session()->pull('email', 'default');
+        Email::create([
+            'address' => $email,
+            'church_id' => $church->id,
+        ]);
 
         return redirect('home');
     }

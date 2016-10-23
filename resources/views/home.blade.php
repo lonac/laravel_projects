@@ -25,7 +25,7 @@
                     <h3 class="panel-title">My church</h3>
                 </div>
                 <div class="panel-body">
-                    @if($church->count() > 0)
+                    @if(isset($church))
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <tbody>
@@ -63,7 +63,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
+                        </div>                   
                     @else
                         <div class="jumbotron text-center">
                             <h2>You have no any church</h2>
