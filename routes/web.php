@@ -83,3 +83,5 @@ Route::post('church/address', 'ChurchController@addressStore');
 
 Route::get('church/other-name', 'ChurchController@otherName');
 Route::post('church/other-name', 'ChurchController@otherNameStore');
+
+Route::resource('periods', 'PeriodController');

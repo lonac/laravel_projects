@@ -21,7 +21,7 @@ class CreatePeriodsTable extends Migration
 
             $table->string('title');
             $table->string('slug');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->timestamp('start_time')->nullable();
             $table->timestamp('finish_time')->nullable();
             $table->boolean('published')->default(false);
