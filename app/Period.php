@@ -11,8 +11,8 @@ class Period extends Model
     	'title',
     	'slug',
     	'description',
-    	'from',
-    	'to',
+    	'start_time',
+    	'finish_time',
     	'published',
     	'day_id',
     ];
