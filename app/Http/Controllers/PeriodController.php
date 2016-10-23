@@ -52,7 +52,9 @@ class PeriodController extends Controller
         $period->description = $request->input('description');
         $period->start_time = $request->input('start_time');
         $period->finish_time = $request->input('finish_time');
-        $period->published = $request->input('published');
+        if($request->input('published') !== null){
+            $period->published = $request->input('published');
+        }
         $period->day_id = $request->input('day');
         $period->save();
 

@@ -21,4 +21,9 @@ class Period extends Model
     {
     	return $this->belongsTo('App\Church');
     }
+
+    public function day()
+    {
+        return $this->belongsTo('App\Day');
+    }
 }

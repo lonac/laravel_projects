@@ -106,7 +106,24 @@
                    <div class="panel-body">
                        @if(isset($church->periods))
                             @if($church->periods->count() > 0)
-                                There is a period
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Day</th>
+                                                <th>Period</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($church->periods as $period)
+                                                <tr>
+                                                    <td>{{ $period->day->name }}</td>
+                                                    <td><a href="{{ url('#') }}">{{ $period->title }}</a></td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             @else
                                 No period
                             @endif
