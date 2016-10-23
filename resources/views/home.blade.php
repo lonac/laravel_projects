@@ -30,7 +30,7 @@
                         <div class="jumbotron text-center">
                             <h2>You have no any church</h2>
                             <p>
-                                <a href="{{ url('churches/create') }}">Create</a>
+                                <a href="{{ url('new') }}">Create</a>
                             </p>
                         </div>
                     @endif

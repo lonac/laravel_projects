@@ -14,8 +14,8 @@
                 {{ csrf_field() }}
 
                 <div class="form-group">
-                    <label for="name">Choose</label>
-                    <select name="region" id="inputRegion" class="form-control">
+                    <label for="category">Choose</label>
+                    <select name="category" id="category" class="form-control">
                        @if($categories->count() > 0)
                              <option value="">-- Select One --</option>
                              @foreach($categories as $category)
