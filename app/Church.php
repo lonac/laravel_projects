@@ -32,4 +32,9 @@ class Church extends Model
     {
         return $this->belongsTo('App\Category');
     }
+
+    public function owner()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
