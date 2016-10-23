@@ -93,7 +93,11 @@
                         <h3 class="panel-title">Events</h3>
                     </div>
                     <div class="panel-body">
-                        No event
+                        @if(isset($church))
+                            Church exists
+                        @else
+                            No event
+                        @endif
                     </div>
                 </div>                
             </div>
