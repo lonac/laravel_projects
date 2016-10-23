@@ -87,7 +87,6 @@
                         No contact info
                     </div>
                 </div>
-                <div class="panel panel-warning">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title">Events</h3>
@@ -99,8 +98,26 @@
                             No event
                         @endif
                     </div>
-                </div>                
-            </div>
+                </div>
+                <div class="panel panel-primary">
+                   <div class="panel-heading">
+                       <h3 class="panel-title">Sessions</h3>
+                   </div>
+                   <div class="panel-body">
+                       @if(isset($church->periods))
+                            @if($church->periods->count() > 0)
+                                There is a period
+                            @else
+                                No period
+                            @endif
+                       @else
+                            Empty
+                       @endif
+                   </div>
+                   <div class="panel-footer">
+                       <a href="{{ url('periods/create') }}" class="btn btn-primary">Add</a>
+                   </div>
+               </div>                
         </div>
 
     </div>
