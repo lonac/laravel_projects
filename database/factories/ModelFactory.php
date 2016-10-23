@@ -56,6 +56,7 @@ $factory->define(App\Church::class, function (Faker\Generator $faker) {
         'address'   => $faker->address,
         'slug' => $slug,
         'category_id' => $faker->numberBetween(1, 2),
+        'user_id' => $faker->numberBetween(1, 2),
     ];
 });
 

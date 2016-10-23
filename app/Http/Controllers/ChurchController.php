@@ -8,6 +8,12 @@ use App\Http\Requests;
 
 use App\Church;
 
+use App\Region;
+
+use App\District;
+
+use App\Category;
+
 class ChurchController extends Controller
 {
     /**
@@ -28,7 +34,7 @@ class ChurchController extends Controller
      */
     public function create()
     {
-        //
+        return view('churches.create');
     }
 
     /**
@@ -39,7 +45,71 @@ class ChurchController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect('church/region');
+    }
+
+    public function region()
+    {
+        $regions = Region::all();
+        return view('churches.region', compact('regions'));
+    }
+
+    public function regionStore(Request $request)
+    {
+       
+        return redirect('church/district');
+    }
+
+    public function district()
+    {
+        $districts = District::all();
+        return view('churches.district', compact('districts'));
+    }
+
+    public function districtStore(Request $request)
+    {
+        return redirect('church/about');
+    }  
+
+    public function about()
+    {
+        return view('churches.about');
+    }  
+
+    public function aboutStore()
+    {
+        return redirect('church/contact');
+    }
+
+    public function contact()
+    {
+        return view('churches.contact');
+    }
+
+    public function contactStore()
+    {
+        return redirect('church/category');
+    }
+
+    public function category()
+    {
+        $categories = Category::all();
+        return view('churches.category', compact('categories'));
+    }
+
+    public function categoryStore()
+    {
+        return redirect('church/other-name');
+    }
+
+    public function otherName()
+    {
+        return view('churches.other-name');
+    }
+
+    public function otherNameStore()
+    {
+        return redirect('home');
     }
 
     /**

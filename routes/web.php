@@ -59,3 +59,24 @@ Route::resource('categories', 'CategoryController');
 Route::resource('events', 'EventController');
 
 Route::get('account/profile', 'UserController@show');
+
+Route::get('church/region', 'ChurchController@region');
+Route::post('church/region', 'ChurchController@regionStore');
+
+Route::get('church/district', 'ChurchController@district');
+Route::post('church/district', 'ChurchController@districtStore');
+
+Route::get('church/about', 'ChurchController@about');
+Route::post('church/about', 'ChurchController@aboutStore');
+
+Route::get('church/contact', 'ChurchController@contact');
+Route::post('church/contact', 'ChurchController@contactStore');
+
+Route::get('church/category', 'ChurchController@category');
+Route::post('church/category', 'ChurchController@categoryStore');
+
+Route::get('church/address', 'ChurchController@address');
+Route::post('church/address', 'ChurchController@addressStore');
+
+Route::get('church/other-name', 'ChurchController@otherName');
+Route::post('church/other-name', 'ChurchController@otherNameStore');
