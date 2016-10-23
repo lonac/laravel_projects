@@ -9,7 +9,7 @@
 
             <h2>Add your church</h2>
  
-            <form action="{{ url('churches') }}" method="POST" role="form">
+            <form action="{{ url('new') }}" method="POST" role="form">
                 
                 {{ csrf_field() }}
             

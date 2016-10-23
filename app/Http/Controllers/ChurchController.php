@@ -34,7 +34,17 @@ class ChurchController extends Controller
      */
     public function create()
     {
-        return view('churches.create');
+        
+    }
+
+    public function new()
+    {
+        return view('churches.new');
+    }
+
+    public function nameStore()
+    {
+        return redirect('church/region');
     }
 
     /**
@@ -45,7 +55,7 @@ class ChurchController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect('church/region');
+        
     }
 
     public function region()

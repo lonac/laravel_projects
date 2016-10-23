@@ -60,6 +60,9 @@ Route::resource('events', 'EventController');
 
 Route::get('account/profile', 'UserController@show');
 
+Route::get('new', 'ChurchController@new');
+Route::post('new', 'ChurchController@nameStore');
+
 Route::get('church/region', 'ChurchController@region');
 Route::post('church/region', 'ChurchController@regionStore');
 
