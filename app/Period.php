@@ -16,4 +16,9 @@ class Period extends Model
     	'published',
     	'day_id',
     ];
+
+    public function church()
+    {
+    	return $this->belongsTo('App\Church');
+    }
 }

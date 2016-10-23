@@ -37,4 +37,9 @@ class Church extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function periods()
+    {
+        return $this->hasMany('App\Period');
+    }
 }
