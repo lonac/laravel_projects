@@ -88,6 +88,7 @@
                     </div>
                 </div>
                 <div class="panel panel-warning">
+                <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title">Events</h3>
                     </div>
