@@ -6,6 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
+            <div class="col-xs-12 col-sm-6">
                 <div class="well">
                     <h1>{{ $church->name }}</h1>
                     <h2>About</h2>
@@ -81,6 +82,8 @@
                                             <td>
                                                 <small>{{ \Carbon\Carbon::parse($period->finish_time)->format('h:i a')  }}</small>
                                             </td>
+                                            <td><small>{{ \Carbon\Carbon::parse($period->start_time)->format('h:i a')  }}</small></td>
+                                            <td><small>{{ \Carbon\Carbon::parse($period->finish_time)->format('h:i a')  }}</small></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
