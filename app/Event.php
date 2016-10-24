@@ -13,4 +13,9 @@ class Event extends Model
         'description',
         'time',
     ];
+
+    public function church()
+    {
+        return $this->belongsTo('App\Church');
+    }
 }
