@@ -5,7 +5,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-sm-9">
+            <div class="col-sm-6">
                 <div class="well">
                     <h1>{{ $church->name }}</h1>
                     <h2>About</h2>
@@ -67,21 +67,16 @@
                         @if($church->periods->count() > 0)
                             <div class="table-responsive">
                                 <table class="table table-hover table-bordered">
-                                    <thead>
-                                    <tr>
-                                        <th>Day</th>
-                                        <th>Period</th>
-                                    </tr>
-                                    </thead>
                                     <tbody>
                                     @foreach($church->periods as $period)
                                         <tr>
-                                            <td>{{ $period->day->name }}</td>
-                                            <td><a href="{{ url('#') }}">{{ $period->title }}</a></td>
+                                            <th>{{ $period->day->name }}</th>
+                                            <td colspan="2"><a href="{{ url('#') }}">{{ $period->title }}</a></td>
                                         </tr>
-                                        <tr>
-                                            <td><small>{{ $period->start_time  }}</small></td>
-                                            <td><small>{{ $period->finish_time  }}</small></td>
+                                        <tr colspan="3">
+                                            <td>&nbsp;</td>
+                                            <td><small>{{ \Carbon\Carbon::parse($period->start_time)->format('h:i a')  }}</small></td>
+                                            <td><small>{{ \Carbon\Carbon::parse($period->finish_time)->format('h:i a')  }}</small></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -92,6 +87,9 @@
                         @endif
                     </div>
                 </div>
+
+            </div>
+            <div class="col-sm-3">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title">Events</h3>
