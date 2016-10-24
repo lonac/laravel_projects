@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Church;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+
+use App\Event;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -25,7 +29,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('events.create');
     }
 
     /**
@@ -36,7 +40,21 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'time' => 'date'
+        ]);
+        $church = Church::whereUserId(Auth::user()->id)->firstOrFail();
+        $event = new Event();
+        $event->church_id = $church->id;
+        $event->title = $request->input('title');
+        $event->slug = str_slug($request->input('title'), '-');
+        $event->description = $request->input('description');
+        $event->time = $request->input('time');
+        $event->save();
+
+        return redirect('home');
     }
 
     /**

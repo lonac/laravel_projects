@@ -201,6 +201,9 @@
                             No event, create a new church first then add a new event
                         @endif
                     </div>
+                    <div class="panel-footer">
+                        <a href="{{ url('events/create') }}" class="btn btn-primary">Create</a>
+                    </div>
                 </div>
             </div>
         </div>
