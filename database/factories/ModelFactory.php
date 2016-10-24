@@ -49,14 +49,14 @@ $factory->define(App\Church::class, function (Faker\Generator $faker) {
     $slug = str_slug($name, '-');
     return [
         'name' => $name,
-        'region_id' => $faker->numberBetween(1, 2),
-        'district_id' => $faker->numberBetween(1, 2),
+        'region_id' => $faker->numberBetween(1, 26),
+        'district_id' => $faker->numberBetween(1, 26),
         'description' => $faker->paragraph(4, true),
         'other_name'    => $faker->realText(70),
         'address'   => $faker->address,
         'slug' => $slug,
-        'category_id' => $faker->numberBetween(1, 2),
-        'user_id' => $faker->numberBetween(1, 2),
+        'category_id' => $faker->numberBetween(1, 4),
+        'user_id' => $faker->numberBetween(1, 10),
     ];
 });
 
@@ -71,15 +71,5 @@ $factory->define(App\Email::class, function (Faker\Generator $faker) {
     return [
         'church_id' => $faker->numberBetween(1, 2),
         'address' => $faker->companyEmail,
-    ];
-});
-
-$factory->define(App\Category::class, function (Faker\Generator $faker) {
-    $name = $faker->word;
-    $slug = str_slug($name, '-');
-
-    return [
-        'name' => $name,
-        'slug' => $slug,
     ];
 });
