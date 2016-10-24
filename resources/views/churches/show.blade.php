@@ -65,7 +65,28 @@
                     </div>
                     <div class="panel-body">
                         @if($church->periods->count() > 0)
-							
+                            <div class="table-responsive">
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Day</th>
+                                        <th>Period</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($church->periods as $period)
+                                        <tr>
+                                            <td>{{ $period->day->name }}</td>
+                                            <td><a href="{{ url('#') }}">{{ $period->title }}</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><small>{{ $period->start_time  }}</small></td>
+                                            <td><small>{{ $period->finish_time  }}</small></td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         @else
                             No timetable
                         @endif
