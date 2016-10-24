@@ -75,8 +75,12 @@
                                         </tr>
                                         <tr colspan="3">
                                             <td>&nbsp;</td>
-                                            <td><small>{{ \Carbon\Carbon::parse($period->start_time)->format('h:i a')  }}</small></td>
-                                            <td><small>{{ \Carbon\Carbon::parse($period->finish_time)->format('h:i a')  }}</small></td>
+                                            <td>
+                                                <small>{{ \Carbon\Carbon::parse($period->start_time)->format('h:i a')  }}</small>
+                                            </td>
+                                            <td>
+                                                <small>{{ \Carbon\Carbon::parse($period->finish_time)->format('h:i a')  }}</small>
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>

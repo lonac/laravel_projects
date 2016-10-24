@@ -76,28 +76,43 @@
 
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-3">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title">Contact info</h3>
                     </div>
                     <div class="panel-body">
-                        No contact info
+                        <div class="table-responsive">
+                        	<table class="table table-hover">
+                        		<thead>
+                        			<tr>
+                        				<th></th>
+                        			</tr>
+                        		</thead>
+                        		<tbody>
+                        			<tr>
+                        				<th>Phones</th>
+                        				@if($church->phones->count() > 0)
+											
+                        				@else
+                        					<td>No Phone <a href="#">Add</a></td>
+                        				@endif
+                        			</tr>
+                        			<tr>
+                        				<th>Email Addresses</th>
+                        				@if($church->emails->count() > 0)
+											
+                        				@else
+                        					<td>No Email <a href="#">Add</a></td>
+                        				@endif
+                        			</tr>                        			
+                        		</tbody>
+                        	</table>
+                        </div>
                     </div>
                 </div>
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Events</h3>
-                    </div>
-                    <div class="panel-body">
-                        @if(isset($church))
-                            Church exists
-                        @else
-                            No event
-                        @endif
-                    </div>
-                </div>
+            </div>
+
+            <div class="col-sm-3">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Sessions</h3>
@@ -107,17 +122,20 @@
                             @if($church->periods->count() > 0)
                                 <div class="table-responsive">
                                     <table class="table table-hover table-bordered">
-                                        <thead>
-                                        <tr>
-                                            <th>Day</th>
-                                            <th>Period</th>
-                                        </tr>
-                                        </thead>
                                         <tbody>
                                         @foreach($church->periods as $period)
                                             <tr>
-                                                <td>{{ $period->day->name }}</td>
-                                                <td><a href="{{ url('#') }}">{{ $period->title }}</a></td>
+                                                <th>{{ $period->day->name }}</th>
+                                                <td colspan="2"><a href="{{ url('#') }}">{{ $period->title }}</a></td>
+                                            </tr>
+                                            <tr colspan="3">
+                                                <td>&nbsp;</td>
+                                                <td>
+                                                    <small>{{ \Carbon\Carbon::parse($period->start_time)->format('h:i a')  }}</small>
+                                                </td>
+                                                <td>
+                                                    <small>{{ \Carbon\Carbon::parse($period->finish_time)->format('h:i a')  }}</small>
+                                                </td>
                                             </tr>
                                         @endforeach
                                         </tbody>
