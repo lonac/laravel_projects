@@ -1,5 +1,6 @@
 <?php
 
+use App\Church;
 use Illuminate\Database\Seeder;
 
 use App\Period;
@@ -17,16 +18,22 @@ class PeriodsTableSeeder extends Seeder
     {
         DB::table('periods')->delete();
 
-        $period = new Period();
-    	$period->church_id = App\Church::first()->id;
-    	$period->title = 'Neno';
-    	$period->slug = 'neno';
-    	$period->description = 'Mahubiri ya neno la Mungu';
-    	$period->start_time = Carbon::now();
-    	$period->finish_time = Carbon::now();
-    	$period->published = true;
-    	$period->day_id = App\Day::first()->id;        
+        $churches = Church::all();
 
-        $period->save();
+        for ($i = 1; $i <= 7; $i++) {
+            foreach ($churches as $church) {
+                $period = new Period();
+                $period->church_id = $church->id;
+                $period->title = 'Neno ' . $i;
+                $period->slug = 'neno-' . $i;
+                $period->description = 'Mahubiri ya neno la Mungu ' . $i;
+                $period->start_time = Carbon::now();
+                $period->finish_time = Carbon::tomorrow();
+                $period->published = true;
+                $period->day_id = $i;
+                $period->save();
+            }
+        }
+
     }
 }

@@ -19,6 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ChurchesTableSeeder::class);
         $this->call(PhonesTableSeeder::class);
         $this->call(EmailsTableSeeder::class);
-
+        $this->call(PeriodsTableSeeder::class);
     }
 }
