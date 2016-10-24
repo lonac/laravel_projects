@@ -87,3 +87,5 @@ Route::post('church/other-name', 'ChurchController@otherNameStore');
 Route::resource('periods', 'PeriodController');
 
 Route::resource('phones', 'PhoneController');
+
+Route::resource('emails', 'EmailController');

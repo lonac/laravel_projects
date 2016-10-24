@@ -136,11 +136,52 @@
                                 </tr>
                                 <tr>
                                     <th>Email Addresses</th>
-                                    @if($church->emails->count() > 0)
+                                    <td>
+                                        <ul>
+                                            @foreach($church->emails as $email)
+                                                <li>{{ $email->address }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-primary" data-toggle="modal" href='#modal-email'>Add</a>
+                                        <div class="modal fade" id="modal-email">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                                aria-hidden="true">&times;</button>
+                                                        <h4 class="modal-title">Add an email address</h4>
+                                                    </div>
+                                                    <div class="modal-body">
 
-                                    @else
-                                        <td>No Email <a href="#">Add</a></td>
-                                    @endif
+                                                        <form action="{{ url('emails') }}" method="POST"
+                                                              class="form-inline" role="form">
+
+                                                            {!! csrf_field() !!}
+
+                                                            <div class="form-group">
+                                                                <label class="sr-only" for="email">Email Address</label>
+                                                                <input type="email" name="email"
+                                                                       class="form-control" id="email"
+                                                                       placeholder="Email Address">
+
+                                                            </div>
+
+
+                                                            <button type="submit" class="btn btn-primary">Add
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal">Close
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
