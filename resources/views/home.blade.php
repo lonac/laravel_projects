@@ -1,14 +1,13 @@
-
 @extends('masterchurch')
 @section('title','Home')
 
 @section('content')
 
-@if(Session::has('success'))
-    <div class="alert alert-success">
-        {{ Session::get('success') }}
-    </div>
-@endif
+    @if(Session::has('success'))
+        <div class="alert alert-success">
+            {{ Session::get('success') }}
+        </div>
+    @endif
 
     @if(Auth::user()->verified == 0)
         <div class="alert alert-danger">
@@ -20,15 +19,15 @@
         <!--first row-->
         <div class="row">
             <div class="col-sm-9">
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title">My church</h3>
-                </div>
-                <div class="panel-body">
-                    @if(isset($church))
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-                                <tbody>
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">My church</h3>
+                    </div>
+                    <div class="panel-body">
+                        @if(isset($church))
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <tbody>
                                     <tr>
                                         <th>Name</th>
                                         <td>{{ $church->name }}</td>
@@ -61,22 +60,22 @@
                                         <th>Updated</th>
                                         <td>{{ $church->updated_at->diffForHumans() }}</td>
                                     </tr>
-                                </tbody>
-                            </table>
-                        </div>                   
-                    @else
-                        <div class="jumbotron text-center">
-                            <h2>You have no any church</h2>
-                            <p>
-                                <a href="{{ url('new') }}">Create</a>
-                            </p>
-                        </div>
-                    @endif
+                                    </tbody>
+                                </table>
+                            </div>
+                        @else
+                            <div class="jumbotron text-center">
+                                <h2>You have no any church</h2>
+                                <p>
+                                    <a href="{{ url('new') }}">Create</a>
+                                </p>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="panel-footer">
+
+                    </div>
                 </div>
-                <div class="panel-footer">
-                    
-                </div>
-            </div>                
             </div>
             <div class="col-sm-3">
                 <div class="panel panel-info">
@@ -100,42 +99,91 @@
                     </div>
                 </div>
                 <div class="panel panel-primary">
-                   <div class="panel-heading">
-                       <h3 class="panel-title">Sessions</h3>
-                   </div>
-                   <div class="panel-body">
-                       @if(isset($church->periods))
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Sessions</h3>
+                    </div>
+                    <div class="panel-body">
+                        @if(isset($church->periods))
                             @if($church->periods->count() > 0)
                                 <div class="table-responsive">
                                     <table class="table table-hover table-bordered">
                                         <thead>
-                                            <tr>
-                                                <th>Day</th>
-                                                <th>Period</th>
-                                            </tr>
+                                        <tr>
+                                            <th>Day</th>
+                                            <th>Period</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($church->periods as $period)
-                                                <tr>
-                                                    <td>{{ $period->day->name }}</td>
-                                                    <td><a href="{{ url('#') }}">{{ $period->title }}</a></td>
-                                                </tr>
-                                            @endforeach
+                                        @foreach($church->periods as $period)
+                                            <tr>
+                                                <td>{{ $period->day->name }}</td>
+                                                <td><a href="{{ url('#') }}">{{ $period->title }}</a></td>
+                                            </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                             @else
                                 No period
                             @endif
-                       @else
+                        @else
                             Empty
-                       @endif
-                   </div>
-                   <div class="panel-footer">
-                       <a href="{{ url('periods/create') }}" class="btn btn-primary">Add</a>
-                   </div>
-               </div>                
-        </div>
+                        @endif
+                    </div>
+                    <div class="panel-footer">
+                        <a href="{{ url('periods/create') }}" class="btn btn-primary">Add</a>
+                    </div>
+                </div>
+            </div>
 
-    </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Events</h3>
+                    </div>
+                    <div class="panel-body">
+                        @if($church !== null)
+                            @if($church->events->count() > 0)
+                                <div class="table-responsive">
+                                	<table class="table table-hover  table-bordered">
+                                		<thead>
+                                			<tr>
+                                				<th>SN</th>
+                                				<th>Title</th>
+                                				<th>Description</th>
+                                				<th>Date</th>
+                                				<th>Created</th>
+                                				<th>Updated</th>
+                                				<th colspan="2"><i class="fa fa-cog"></i></th>
+                                			</tr>
+                                		</thead>
+                                		<tbody>
+                                			<?php $i = 1; ?>
+                                			@foreach($church->events as $event)
+												<tr>
+													<td>{{ $i++ }}</td>
+													<td><a href="#">{{ $event->title }}</a></td>
+													<td>{{ str_limit($event->description, 30) }}</td>
+													<td>{{ $event->time }}</td>
+													<td>{{ $event->created_at->diffForHumans() }}</td>
+													<td>{{ $event->updated_at->diffForHumans() }}</td>
+													<td><a href="#"><i class="fa fa-edit"></i>Edit</a></td>
+													<td><a href="#"><i class="fa fa-trash"></i>Delete</a></td>
+												</tr>
+                                			@endforeach
+                                		</tbody>
+                                	</table>
+                                </div>
+                            @else
+                                No event, <a href="{{ url('events/create') }}">Create</a>
+                            @endif
+                        @else
+                            No event, create a new church first then add a new event
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
 @endsection

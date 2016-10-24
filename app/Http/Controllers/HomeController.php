@@ -27,7 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $church = Church::with('periods')->whereUserId(Auth::user()->id)->first();
+        $church = Church::with(['periods', 'events'])->whereUserId(Auth::user()->id)->first();
         return view('home', compact('church'));
     }
 }
