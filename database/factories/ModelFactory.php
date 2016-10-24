@@ -73,3 +73,15 @@ $factory->define(App\Email::class, function (Faker\Generator $faker) {
         'address' => $faker->companyEmail,
     ];
 });
+
+$factory->define(App\Event::class, function (Faker\Generator $faker) {
+    $title = $faker->sentences(3, true);
+    $slug = str_slug($title, '-');
+    return [
+        'church_id' => $faker->numberBetween(1, 20),
+        'title' => $title,
+        'slug' => $slug,
+        'description' => $faker->realText(200, 2),
+        'time' => $faker->dateTimeThisYear($max='tomorrow'),
+    ];
+});
