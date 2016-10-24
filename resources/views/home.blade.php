@@ -82,58 +82,57 @@
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                <tr>
-                                    <th></th>
-                                </tr>
-                                </thead>
+                            <table class="table table-bordered">
                                 <tbody>
                                 <tr>
                                     <th>Phones</th>
-                                    @if($church->phones->count() > 0)
+                                    <td>
+                                        <ul>
+                                            @foreach($church->phones as $phone)
+                                                <li>{{ $phone->number }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-primary" data-toggle="modal" href='#modal-id'>Add</a>
+                                        <div class="modal fade" id="modal-id">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                                aria-hidden="true">&times;</button>
+                                                        <h4 class="modal-title">Add a phone number</h4>
+                                                    </div>
+                                                    <div class="modal-body">
 
-                                    @else
-                                        <td>No Phone
-                                            <a class="btn btn-primary" data-toggle="modal" href='#modal-id'>Add</a>
-                                            <div class="modal fade" id="modal-id">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-hidden="true">&times;</button>
-                                                            <h4 class="modal-title">Add a phone number</h4>
-                                                        </div>
-                                                        <div class="modal-body">
+                                                        <form action="{{ url('phones') }}" method="POST"
+                                                              class="form-inline" role="form">
 
-                                                            <form action="{{ url('phones') }}" method="POST"
-                                                                  class="form-inline" role="form">
+                                                            {!! csrf_field() !!}
 
-                                                                {!! csrf_field() !!}
+                                                            <div class="form-group">
+                                                                <label class="sr-only" for="number">Phone Number</label>
+                                                                <input type="number" name="number"
+                                                                       class="form-control" id="number"
+                                                                       placeholder="Phone Number" minlength="12"
+                                                                       maxlength="12">
 
-                                                                <div class="form-group">
-                                                                    <label class="sr-only" for="number">Phone Number</label>
-                                                                    <input type="number" name="number"
-                                                                           class="form-control" id="number"
-                                                                           placeholder="Phone Number" minlength="12" maxlength="12">
-
-                                                                </div>
+                                                            </div>
 
 
-                                                                <button type="submit" class="btn btn-primary">Add
-                                                                </button>
-                                                            </form>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-default"
-                                                                    data-dismiss="modal">Close
+                                                            <button type="submit" class="btn btn-primary">Add
                                                             </button>
-                                                        </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal">Close
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </td>
-                                    @endif
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>Email Addresses</th>
