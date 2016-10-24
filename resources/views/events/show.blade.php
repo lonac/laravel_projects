@@ -22,7 +22,20 @@
                 		<h3 class="panel-title">Other events</h3>
                 	</div>
                 	<div class="panel-body">
-                		Panel content
+                        @if($events->count() > 0)
+                            <div class="list-group">
+                                @foreach($events as $event)
+                                    <a href="{{ url('events/' . $event->id . '/' . $event->slug) }}" class="list-group-item active">
+                                        <h4 class="list-group-item-heading">{{ str_limit($event->title, 30) }}</h4>
+                                        <p class="list-group-item-text">
+                                            {{ $event->time }}
+                                        </p>
+                                    </a>
+                                @endforeach
+                            </div>
+                        @else
+                            No event
+                        @endif
                 	</div>
                 </div>
             </div>

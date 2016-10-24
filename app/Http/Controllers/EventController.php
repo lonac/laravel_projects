@@ -66,7 +66,8 @@ class EventController extends Controller
     public function show($id, $slug)
     {
         $event = Event::with('church')->findOrFail($id);
-        return view('events.show', compact('event'));
+        $events = Event::whereChurchId($event->id)->get();
+        return view('events.show', compact('event', 'events'));
     }
 
     /**
