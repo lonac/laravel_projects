@@ -63,9 +63,10 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $slug)
     {
-        //
+        $event = Event::with('church')->findOrFail($id);
+        return view('events.show', compact('event'));
     }
 
     /**

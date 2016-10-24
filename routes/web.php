@@ -56,7 +56,8 @@ Route::resource('districts', 'DistrictController');
 
 Route::resource('categories', 'CategoryController');
 
-Route::resource('events', 'EventController');
+Route::get('events/{id}/{slug}', 'EventController@show');
+Route::post('events', 'EventController@store');
 
 Route::get('account/profile', 'UserController@show');
 
