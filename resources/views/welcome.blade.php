@@ -19,12 +19,9 @@
                 @include('searchnav')
             </div>
 
-            <!--third column-->
+            <!--sidebar here!-->
             <div class="col-md-4 col-lg-4">
-                <!--firsr row-->
-                <div class="row">
-                all links of the page to other websites like social network will be placed in here
-                </div>
+                @include('shared.sidebar')
             </div>
 
         </div>
