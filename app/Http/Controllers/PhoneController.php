@@ -2,19 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Church;
+use App\Phone;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
-use App\Day;
-
-use App\Church;
-
-use Auth;
-
-use App\Period;
-
-class PeriodController extends Controller
+class PhoneController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -33,8 +28,7 @@ class PeriodController extends Controller
      */
     public function create()
     {
-        $days = Day::all();
-        return view('periods.create', compact('days'));
+        //
     }
 
     /**
@@ -45,19 +39,14 @@ class PeriodController extends Controller
      */
     public function store(Request $request)
     {
-        // TODO validation is required
-        $period = new Period();
-        $period->church_id = Church::whereUserId(Auth::user()->id)->first()->id;
-        $period->title = $request->input('title');
-        $period->slug = str_slug($request->input('title'), '-');
-        $period->description = $request->input('description');
-        $period->start_time = $request->input('start_time');
-        $period->finish_time = $request->input('finish_time');
-        if($request->input('published') !== null){
-            $period->published = $request->input('published');
-        }
-        $period->day_id = $request->input('day');
-        $period->save();
+        $this->validate($request, [
+            'number' => 'required|digits:12',
+        ]);
+
+        $phone = new Phone();
+        $phone->number = $request->input('number');
+        $phone->church_id = Church::whereUserId(Auth::user()->id)->first()->id;
+        $phone->save();
 
         return redirect('home');
     }

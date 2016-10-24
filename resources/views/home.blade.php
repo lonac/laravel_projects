@@ -82,31 +82,69 @@
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
-                        	<table class="table table-hover">
-                        		<thead>
-                        			<tr>
-                        				<th></th>
-                        			</tr>
-                        		</thead>
-                        		<tbody>
-                        			<tr>
-                        				<th>Phones</th>
-                        				@if($church->phones->count() > 0)
-											
-                        				@else
-                        					<td>No Phone <a href="#">Add</a></td>
-                        				@endif
-                        			</tr>
-                        			<tr>
-                        				<th>Email Addresses</th>
-                        				@if($church->emails->count() > 0)
-											
-                        				@else
-                        					<td>No Email <a href="#">Add</a></td>
-                        				@endif
-                        			</tr>                        			
-                        		</tbody>
-                        	</table>
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th>Phones</th>
+                                    @if($church->phones->count() > 0)
+
+                                    @else
+                                        <td>No Phone
+                                            <a class="btn btn-primary" data-toggle="modal" href='#modal-id'>Add</a>
+                                            <div class="modal fade" id="modal-id">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-hidden="true">&times;</button>
+                                                            <h4 class="modal-title">Add a phone number</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+
+                                                            <form action="{{ url('phones') }}" method="POST"
+                                                                  class="form-inline" role="form">
+
+                                                                {!! csrf_field() !!}
+
+                                                                <div class="form-group">
+                                                                    <label class="sr-only" for="number">Phone Number</label>
+                                                                    <input type="number" name="number"
+                                                                           class="form-control" id="number"
+                                                                           placeholder="Phone Number" minlength="12" maxlength="12">
+
+                                                                </div>
+
+
+                                                                <button type="submit" class="btn btn-primary">Add
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default"
+                                                                    data-dismiss="modal">Close
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    @endif
+                                </tr>
+                                <tr>
+                                    <th>Email Addresses</th>
+                                    @if($church->emails->count() > 0)
+
+                                    @else
+                                        <td>No Email <a href="#">Add</a></td>
+                                    @endif
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -165,34 +203,34 @@
                         @if($church !== null)
                             @if($church->events->count() > 0)
                                 <div class="table-responsive">
-                                	<table class="table table-hover  table-bordered">
-                                		<thead>
-                                			<tr>
-                                				<th>SN</th>
-                                				<th>Title</th>
-                                				<th>Description</th>
-                                				<th>Date</th>
-                                				<th>Created</th>
-                                				<th>Updated</th>
-                                				<th colspan="2"><i class="fa fa-cog"></i></th>
-                                			</tr>
-                                		</thead>
-                                		<tbody>
-                                			<?php $i = 1; ?>
-                                			@foreach($church->events as $event)
-												<tr>
-													<td>{{ $i++ }}</td>
-													<td><a href="#">{{ $event->title }}</a></td>
-													<td>{{ str_limit($event->description, 30) }}</td>
-													<td>{{ $event->time }}</td>
-													<td>{{ $event->created_at->diffForHumans() }}</td>
-													<td>{{ $event->updated_at->diffForHumans() }}</td>
-													<td><a href="#"><i class="fa fa-edit"></i>Edit</a></td>
-													<td><a href="#"><i class="fa fa-trash"></i>Delete</a></td>
-												</tr>
-                                			@endforeach
-                                		</tbody>
-                                	</table>
+                                    <table class="table table-hover  table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>SN</th>
+                                            <th>Title</th>
+                                            <th>Description</th>
+                                            <th>Date</th>
+                                            <th>Created</th>
+                                            <th>Updated</th>
+                                            <th colspan="2"><i class="fa fa-cog"></i></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php $i = 1; ?>
+                                        @foreach($church->events as $event)
+                                            <tr>
+                                                <td>{{ $i++ }}</td>
+                                                <td><a href="#">{{ $event->title }}</a></td>
+                                                <td>{{ str_limit($event->description, 30) }}</td>
+                                                <td>{{ $event->time }}</td>
+                                                <td>{{ $event->created_at->diffForHumans() }}</td>
+                                                <td>{{ $event->updated_at->diffForHumans() }}</td>
+                                                <td><a href="#"><i class="fa fa-edit"></i>Edit</a></td>
+                                                <td><a href="#"><i class="fa fa-trash"></i>Delete</a></td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
                             @else
                                 No event, <a href="{{ url('events/create') }}">Create</a>
