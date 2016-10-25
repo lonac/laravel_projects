@@ -20,7 +20,7 @@
             </div>
 
             <!--sidebar here!-->
-            <div class="col-md-4 col-lg-4">
+            <div class="col-md-10 col-lg-4">
                 @include('shared.sidebar')
             </div>
 
@@ -30,7 +30,7 @@
         <div class="row-banner">
 
             <!--first column-->
-            <div class="col-md-2 col-lg-3" style="background-color: #a7cece;">
+            <div class="col-md-2 col-lg-3">
             first column
             </div>
 
