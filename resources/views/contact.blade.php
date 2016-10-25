@@ -5,7 +5,7 @@
     <div class="container">
         <div class="content">
         <center>
-            <div class="title">MyChurch site contacts</div>
+            <div class="title">Search MyChurch site contacts</div>
             <p>You can contact mychurch direct through the following contacts:</p>
             <p>P.O.BOX 465245
             	DAR ES SALAAM, TANZANIA.
