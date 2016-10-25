@@ -49,14 +49,14 @@ $factory->define(App\Church::class, function (Faker\Generator $faker) {
     $slug = str_slug($name, '-');
     return [
         'name' => $name,
-        'region_id' => $faker->numberBetween(1, 2),
-        'district_id' => $faker->numberBetween(1, 2),
+        'region_id' => $faker->numberBetween(1, 26),
+        'district_id' => $faker->numberBetween(1, 26),
         'description' => $faker->paragraph(4, true),
         'other_name'    => $faker->realText(70),
         'address'   => $faker->address,
         'slug' => $slug,
-        'category_id' => $faker->numberBetween(1, 2),
-        'user_id' => $faker->numberBetween(1, 2),
+        'category_id' => $faker->numberBetween(1, 4),
+        'user_id' => $faker->numberBetween(1, 10),
     ];
 });
 
@@ -74,12 +74,14 @@ $factory->define(App\Email::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Category::class, function (Faker\Generator $faker) {
-    $name = $faker->word;
-    $slug = str_slug($name, '-');
-
+$factory->define(App\Event::class, function (Faker\Generator $faker) {
+    $title = $faker->sentences(3, true);
+    $slug = str_slug($title, '-');
     return [
-        'name' => $name,
+        'church_id' => $faker->numberBetween(1, 20),
+        'title' => $title,
         'slug' => $slug,
+        'description' => $faker->realText(200, 2),
+        'time' => $faker->dateTimeThisYear($max='tomorrow'),
     ];
 });

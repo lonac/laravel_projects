@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Church;
+use App\Phone;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
-use App\Event;
 use Illuminate\Support\Facades\Auth;
 
-class EventController extends Controller
+class PhoneController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +18,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::with('church')->paginate(20);
-        return view('events.index', compact('events'));
+        //
     }
 
     /**
@@ -30,7 +28,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('events.create');
+        //
     }
 
     /**
@@ -42,18 +40,13 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required|max:255',
-            'description' => 'required',
-            'time' => 'date'
+            'number' => 'required|digits:12',
         ]);
-        $church = Church::whereUserId(Auth::user()->id)->firstOrFail();
-        $event = new Event();
-        $event->church_id = $church->id;
-        $event->title = $request->input('title');
-        $event->slug = str_slug($request->input('title'), '-');
-        $event->description = $request->input('description');
-        $event->time = $request->input('time');
-        $event->save();
+
+        $phone = new Phone();
+        $phone->number = $request->input('number');
+        $phone->church_id = Church::whereUserId(Auth::user()->id)->first()->id;
+        $phone->save();
 
         return redirect('home');
     }
@@ -64,11 +57,9 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id, $slug)
+    public function show($id)
     {
-        $event = Event::with('church')->findOrFail($id);
-        $events = Event::whereChurchId($event->id)->get();
-        return view('events.show', compact('event', 'events'));
+        //
     }
 
     /**

@@ -56,7 +56,9 @@ Route::resource('districts', 'DistrictController');
 
 Route::resource('categories', 'CategoryController');
 
-Route::resource('events', 'EventController');
+Route::get('events', 'EventController@index');
+Route::get('events/{id}/{slug}', 'EventController@show');
+Route::post('events', 'EventController@store');
 
 Route::get('account/profile', 'UserController@show');
 
@@ -83,3 +85,9 @@ Route::post('church/address', 'ChurchController@addressStore');
 
 Route::get('church/other-name', 'ChurchController@otherName');
 Route::post('church/other-name', 'ChurchController@otherNameStore');
+
+Route::resource('periods', 'PeriodController');
+
+Route::resource('phones', 'PhoneController');
+
+Route::resource('emails', 'EmailController');
