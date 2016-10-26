@@ -93,3 +93,5 @@ Route::resource('phones', 'PhoneController');
 Route::resource('emails', 'EmailController');
 
 Route::post('storeContacts', 'UserController@storeContacts');
+
+Route::post('user/storeSocial', 'UserController@storeSocial');

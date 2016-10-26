@@ -30,7 +30,7 @@ class UserController extends Controller
             $user->email = $request->input('email');
         }
         // check if phone has changed
-        if($request->input('phone') !== $user->phone){
+        if ($request->input('phone') !== $user->phone) {
             // check if it has already been taken
             $this->validate($request, [
                 'phone' => 'unique:users',
@@ -38,6 +38,22 @@ class UserController extends Controller
             $user->phone = $request->input('phone');
         }
 
+        $user->save();
+
+        return redirect('account/profile');
+    }
+
+    public function storeSocial(Request $request)
+    {
+        $this->validate($request, [
+            'facebook' => 'url',
+            'twitter' => 'url',
+            'blog' => 'url',
+        ]);
+        $user = Auth::user();
+        $user->facebook = $request->input('facebook');
+        $user->twitter = $request->input('twitter');
+        $user->blog = $request->input('blog');
         $user->save();
 
         return redirect('account/profile');
