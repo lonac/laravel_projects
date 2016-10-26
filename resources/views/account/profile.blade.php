@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-3">
                 <div class="well">
-                    Photo
+                    <img src="#" class="img-responsive img-rounded" alt="Image">
                 </div>
                 <div class="well">
                     <h3>Joined</h3>
