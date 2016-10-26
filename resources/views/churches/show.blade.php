@@ -136,7 +136,7 @@
                                 @foreach($church->photos as $photo)
                                     <li class="col-sm-3">
                                         <a class="thumbnail" id="carousel-selector-{{ $photo->id }}">
-                                            <img src="{{ url('images/churches/' . $photo->id . '/' . $photo->url) }}"
+                                            <img src="{{ url('images/churches/' . $church->id . '/' . $photo->url) }}"
                                                  class="img-responsive" alt="">
                                         </a>
                                     </li>
@@ -158,7 +158,7 @@
 
                                                 @foreach($church->photos as $photo)
                                                     <div class="item" data-slide-number="{{ $photo->id }}">
-                                                        <img src="{{ url('images/churches/' . $photo->id . '/' . $photo->url) }}"
+                                                        <img src="{{ url('images/churches/' . $church->id . '/' . $photo->url) }}"
                                                              class="img-responsive" alt="">
                                                     </div>
                                                 @endforeach
