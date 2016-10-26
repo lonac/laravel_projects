@@ -15,17 +15,34 @@
                         {{ $event->church->name }}
                     </p>
                 </div>
+                @if($event->photos->count() > 0)
+                    <div class="well">
+                        <ul class="list-unstyled">
+                            @foreach($event->photos as $photo)
+                                <li class="list-unstyled">
+                                    <div class="thumbnail">
+                                        <img src="{{ url('images/events/' . $event->id . '/' . $photo->url) }}"
+                                             class="img-responsive" alt="">
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @else
+                    No photo
+                @endif
             </div>
             <div class="col-sm-3">
                 <div class="panel panel-warning">
-                	<div class="panel-heading">
-                		<h3 class="panel-title">Other events</h3>
-                	</div>
-                	<div class="panel-body">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Other events</h3>
+                    </div>
+                    <div class="panel-body">
                         @if($events->count() > 0)
                             <div class="list-group">
                                 @foreach($events as $event)
-                                    <a href="{{ url('events/' . $event->id . '/' . $event->slug) }}" class="list-group-item active">
+                                    <a href="{{ url('events/' . $event->id . '/' . $event->slug) }}"
+                                       class="list-group-item active">
                                         <h4 class="list-group-item-heading">{{ str_limit($event->title, 30) }}</h4>
                                         <p class="list-group-item-text">
                                             {{ $event->time }}
@@ -36,7 +53,7 @@
                         @else
                             No event
                         @endif
-                	</div>
+                    </div>
                 </div>
             </div>
         </div>
