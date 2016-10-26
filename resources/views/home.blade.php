@@ -226,7 +226,7 @@
                                     </table>
                                 </div>
                             @else
-                                No period
+                                No church session added
                             @endif
                         @else
                             Empty
@@ -307,6 +307,8 @@
                                         </tbody>
                                     </table>
                                 </div>
+                            @else
+                                <h2>No event</h2>
                             @endif
                         @else
                             No event, create a new church first then add a new event
