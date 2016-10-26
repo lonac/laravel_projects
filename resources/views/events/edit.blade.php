@@ -70,7 +70,16 @@
                         </div>
                         <div class="panel-body">
                             @if($event->photos->count() > 0)
-
+                                <ul>
+                                    @foreach($event->photos as $photo)
+                                        <li class="list-unstyled">
+                                            <div class="thumbnail">
+                                                <img src="{{ url('images/events/' . $event->id . '/' . $photo->url) }}"
+                                                     class="img-responsive" alt="">
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
                             @else
                                 No photo
                             @endif

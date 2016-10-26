@@ -16,7 +16,7 @@ class EventImageController extends Controller
         $event = Event::findOrFail($request->input('event'));
         // validate
         $this->validate($request, [
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $imagePath = time() . '.' . $request->image->getClientOriginalExtension();
