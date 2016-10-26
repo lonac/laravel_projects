@@ -121,7 +121,13 @@
 
                 </div>
                 <div class="well">
-                    <h2>Church(es)</h2>
+                    <h2>Church</h2>
+                    @if(Auth::user()->church !== null)
+                        <h3>{{ Auth::user()->church->name }}</h3>
+                    @else
+                        <h3 class="text-center">You have not added your church. <a href="{{ url('churches/create') }}">Add</a>
+                        </h3>
+                    @endif
                 </div>
             </div>
         </div>
