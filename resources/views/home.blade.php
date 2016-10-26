@@ -242,9 +242,9 @@
                     </div>
                     <div class="panel-body">
                         @if($church !== null)
-                            @if($church->images->count()> 0)
+                            @if($church->photos->count()> 0)
                                 <ul class="list-unstyled">
-                                    @foreach($church->images as $image)
+                                    @foreach($church->photos as $image)
                                         <li>
                                             <div class="thumbnail">
                                                 <img src="{{ url('images/churches/' . $church->id . '/' . $image->url) }}"
