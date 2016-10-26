@@ -82,6 +82,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
+                            @if($church !== null)
                             <table class="table table-bordered">
                                 <tbody>
                                 <tr>
@@ -184,7 +185,10 @@
                                     </td>
                                 </tr>
                                 </tbody>
-                            </table>
+                            </table>  
+                            @else
+                                <h2 class="text-center">Add church first</h2>
+                            @endif                          
                         </div>
                     </div>
                 </div>
