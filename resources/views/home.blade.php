@@ -236,6 +236,25 @@
                         <a href="{{ url('periods/create') }}" class="btn btn-primary">Add</a>
                     </div>
                 </div>
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Photos</h3>
+                    </div>
+                    <div class="panel-body">
+                        @if($church !== null)
+                            @if($church->images->count()> 0)
+
+                            @else
+                                No photo
+                            @endif
+                        @else
+                            Add church first
+                        @endif
+                    </div>
+                    <div class="panel-footer">
+                        <a href="{{ url('church-photos/new') }}"><i class="material-icons">add</i></a>
+                    </div>
+                </div>
             </div>
 
         </div>

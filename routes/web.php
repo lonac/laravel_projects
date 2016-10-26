@@ -96,3 +96,7 @@ Route::resource('emails', 'EmailController');
 Route::post('storeContacts', 'UserController@storeContacts');
 
 Route::post('user/storeSocial', 'UserController@storeSocial');
+
+Route::get('church-photos/new', 'ChurchImageController@create');
+
+Route::post('church-photos', 'ChurchImageController@store');
