@@ -83,112 +83,114 @@
                     <div class="panel-body">
                         <div class="table-responsive">
                             @if($church !== null)
-                            <table class="table table-bordered">
-                                <tbody>
-                                <tr>
-                                    <th>Phones</th>
-                                    <td>
-                                        <ul>
-                                            @foreach($church->phones as $phone)
-                                                <li>{{ $phone->number }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-primary" data-toggle="modal" href='#modal-id'>Add</a>
-                                        <div class="modal fade" id="modal-id">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                aria-hidden="true">&times;</button>
-                                                        <h4 class="modal-title">Add a phone number</h4>
-                                                    </div>
-                                                    <div class="modal-body">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                    <tr>
+                                        <th>Phones</th>
+                                        <td>
+                                            <ul>
+                                                @foreach($church->phones as $phone)
+                                                    <li>{{ $phone->number }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-primary" data-toggle="modal" href='#modal-id'>Add</a>
+                                            <div class="modal fade" id="modal-id">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-hidden="true">&times;</button>
+                                                            <h4 class="modal-title">Add a phone number</h4>
+                                                        </div>
+                                                        <div class="modal-body">
 
-                                                        <form action="{{ url('phones') }}" method="POST"
-                                                              class="form-inline" role="form">
+                                                            <form action="{{ url('phones') }}" method="POST"
+                                                                  class="form-inline" role="form">
 
-                                                            {!! csrf_field() !!}
+                                                                {!! csrf_field() !!}
 
-                                                            <div class="form-group">
-                                                                <label class="sr-only" for="number">Phone Number</label>
-                                                                <input type="number" name="number"
-                                                                       class="form-control" id="number"
-                                                                       placeholder="Phone Number" minlength="12"
-                                                                       maxlength="12">
+                                                                <div class="form-group">
+                                                                    <label class="sr-only" for="number">Phone
+                                                                        Number</label>
+                                                                    <input type="number" name="number"
+                                                                           class="form-control" id="number"
+                                                                           placeholder="Phone Number" minlength="12"
+                                                                           maxlength="12">
 
-                                                            </div>
+                                                                </div>
 
 
-                                                            <button type="submit" class="btn btn-primary">Add
+                                                                <button type="submit" class="btn btn-primary">Add
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default"
+                                                                    data-dismiss="modal">Close
                                                             </button>
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default"
-                                                                data-dismiss="modal">Close
-                                                        </button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Email Addresses</th>
-                                    <td>
-                                        <ul>
-                                            @foreach($church->emails as $email)
-                                                <li>{{ $email->address }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-primary" data-toggle="modal" href='#modal-email'>Add</a>
-                                        <div class="modal fade" id="modal-email">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                aria-hidden="true">&times;</button>
-                                                        <h4 class="modal-title">Add an email address</h4>
-                                                    </div>
-                                                    <div class="modal-body">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email Addresses</th>
+                                        <td>
+                                            <ul>
+                                                @foreach($church->emails as $email)
+                                                    <li>{{ $email->address }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-primary" data-toggle="modal" href='#modal-email'>Add</a>
+                                            <div class="modal fade" id="modal-email">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-hidden="true">&times;</button>
+                                                            <h4 class="modal-title">Add an email address</h4>
+                                                        </div>
+                                                        <div class="modal-body">
 
-                                                        <form action="{{ url('emails') }}" method="POST"
-                                                              class="form-inline" role="form">
+                                                            <form action="{{ url('emails') }}" method="POST"
+                                                                  class="form-inline" role="form">
 
-                                                            {!! csrf_field() !!}
+                                                                {!! csrf_field() !!}
 
-                                                            <div class="form-group">
-                                                                <label class="sr-only" for="email">Email Address</label>
-                                                                <input type="email" name="email"
-                                                                       class="form-control" id="email"
-                                                                       placeholder="Email Address">
+                                                                <div class="form-group">
+                                                                    <label class="sr-only" for="email">Email
+                                                                        Address</label>
+                                                                    <input type="email" name="email"
+                                                                           class="form-control" id="email"
+                                                                           placeholder="Email Address">
 
-                                                            </div>
+                                                                </div>
 
 
-                                                            <button type="submit" class="btn btn-primary">Add
+                                                                <button type="submit" class="btn btn-primary">Add
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default"
+                                                                    data-dismiss="modal">Close
                                                             </button>
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default"
-                                                                data-dismiss="modal">Close
-                                                        </button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>  
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             @else
                                 <h2 class="text-center">Add church first</h2>
-                            @endif                          
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -276,15 +278,15 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            @else
-                                No event, <a href="{{ url('events/create') }}">Create</a>
                             @endif
                         @else
                             No event, create a new church first then add a new event
                         @endif
                     </div>
                     <div class="panel-footer">
-                        <a href="{{ url('events/create') }}" class="btn btn-primary">Create</a>
+                        @if($church !== null)
+                            <a href="{{ url('events/new') }}" class="btn btn-primary">Create</a>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -59,6 +59,7 @@ Route::resource('categories', 'CategoryController');
 Route::get('events', 'EventController@index');
 Route::get('events/{id}/{slug}', 'EventController@show');
 Route::post('events', 'EventController@store');
+Route::get('events/new', 'EventController@create');
 
 Route::get('account/profile', 'UserController@show');
 

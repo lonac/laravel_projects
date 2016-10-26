@@ -25,7 +25,7 @@
                             @endforeach
                         </div>
                     @endforeach
-                    <div class="well text-center">
+                    <div class="text-center">
                         {{ $events->links() }}
                     </div>
                 @else
