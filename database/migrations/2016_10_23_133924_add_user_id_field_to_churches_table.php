@@ -27,8 +27,7 @@ class AddUserIdFieldToChurchesTable extends Migration
     public function down()
     {
         Schema::table('churches', function (Blueprint $table) {
-            $table->dropForeign('user_id');
-            $table->dropColumn('user_id');
+            $table->dropIfExists('user_id');
         });
     }
 }
