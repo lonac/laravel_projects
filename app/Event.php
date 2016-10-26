@@ -18,4 +18,9 @@ class Event extends Model
     {
         return $this->belongsTo('App\Church');
     }
+
+    public function photos()
+    {
+        return $this->hasMany('App\EventImage');
+    }
 }
