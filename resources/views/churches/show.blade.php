@@ -17,7 +17,7 @@
                             <tbody>
                             <tr>
                                 <th>Category</th>
-                                <td>{{ $church->category->name }}</td>
+                                <td colspan="3">{{ $church->category->name }}</td>
                             </tr>
                             <tr>
                                 <th>Region</th>
@@ -54,11 +54,11 @@
                             </tr>
                             <tr>
                                 <th>Address</th>
-                                <td>{{ $church->address }}</td>
+                                <td colspan="3">{{ $church->address }}</td>
                             </tr>
                             <tr>
                                 <th>Other name</th>
-                                <td>{{ $church->other_name }}</td>
+                                <td colspan="3">{{ $church->other_name }}</td>
                             </tr>
                             </tbody>
                         </table>
