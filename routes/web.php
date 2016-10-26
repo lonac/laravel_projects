@@ -11,23 +11,23 @@
 |
 */
 
- //home
-Route::get('/', function() {
-	return view('welcome');
+//home
+Route::get('/', function () {
+    return view('welcome');
 });
 
 //about
-Route::get('/about','PagesController@about');
+Route::get('/about', 'PagesController@about');
 
 //navbar
-Route::get('/contact','PagesController@contact');
+Route::get('/contact', 'PagesController@contact');
 
 //weeekly timetable
-Route::get('/weekly','PagesController@weekly');
+Route::get('/weekly', 'PagesController@weekly');
 
 
 //church details
-Route::get('/churchdet','PagesController@churchdet');
+Route::get('/churchdet', 'PagesController@churchdet');
 
 
 //
@@ -102,3 +102,5 @@ Route::post('user/storeSocial', 'UserController@storeSocial');
 Route::get('church-photos/new', 'ChurchImageController@create');
 
 Route::post('church-photos', 'ChurchImageController@store');
+
+Route::post('event-photos', 'EventImageController@store');
