@@ -91,3 +91,5 @@ Route::resource('periods', 'PeriodController');
 Route::resource('phones', 'PhoneController');
 
 Route::resource('emails', 'EmailController');
+
+Route::post('storeContacts', 'UserController@storeContacts');

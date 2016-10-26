@@ -23,23 +23,42 @@
 		<div class="col-sm-12 col-sm-9">
 			<div class="well">
 				<h2>Account Settings</h2>
-				<form action="#" method="POST" class="form-horizontal" role="form">
+				@include('errors.list')
+				<form action="{{ url('storeContacts') }}" method="POST" class="form-horizontal" role="form">
+
+						{{ csrf_field() }}
+
 						<div class="form-group">
 							<label for="name" class="col-sm-2 control-label">Name</label>
 							<div class="col-sm-10">
 								<input type="text" name="name" id="name" class="form-control" value="{{ Auth::user()->name }}">
+								@if($errors->has('name'))
+									<p class="help-block">
+										<strong>{{ $errors->first('name') }}</strong>
+									</p>
+								@endif
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="email" class="col-sm-2 control-label">email</label>
 							<div class="col-sm-10">
 								<input type="text" name="email" id="email" class="form-control" value="{{ Auth::user()->email }}">
+								@if($errors->has('email'))
+									<p class="help-block">
+										<strong>{{ $errors->first('email') }}</strong>
+									</p>
+								@endif								
 							</div>
 						</div>	
 						<div class="form-group">
 							<label for="phone" class="col-sm-2 control-label">Phone number</label>
 							<div class="col-sm-10">
-								<input type="text" name="phone" id="phone" class="form-control">
+								<input type="text" name="phone" id="phone" class="form-control" value="{{ Auth::user()->phone }}">
+								@if($errors->has('phone'))
+									<p class="help-block">
+										<strong>{{ $errors->first('phone') }}</strong>
+									</p>
+								@endif								
 							</div>
 						</div>											
 						<div class="form-group">
