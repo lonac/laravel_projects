@@ -17,75 +17,64 @@
                 </div>
                 @if($event->photos->count() > 0)
 
-
-
-                    <div id="main_area">
-                        <!-- Slider -->
-                        <div class="row">
-                            <div class="col-sm-6" id="slider-thumbs">
-                                <!-- Bottom switcher of slider -->
-                                <ul class="hide-bullets">
-                                    @foreach($event->photos as $photo)
-                                        <li class="col-sm-3">
-                                            <a class="thumbnail" id="carousel-selector-{{ $photo->id }}">
-                                                <img src="{{ url('images/events/' . $event->id . '/' . $photo->url) }}"
-                                                     class="img-responsive" alt="">
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="col-xs-12" id="slider">
-                                    <!-- Top part of the slider -->
-                                    <div class="row">
-                                        <div class="col-sm-12" id="carousel-bounding-box">
-                                            <div class="carousel slide" id="myCarousel">
-                                                <!-- Carousel items -->
-                                                <div class="carousel-inner">
-                                                    <div class="active item" data-slide-number="0">
-                                                        <img src="http://placehold.it/470x480&text={{ $event->title }}"></div>
-
-
-                                                    @foreach($event->photos as $photo)
-                                                        <div class="item" data-slide-number="{{ $photo->id }}">
-                                                            <img src="{{ url('images/events/' . $event->id . '/' . $photo->url) }}"
-                                                                 class="img-responsive" alt="">
+                    <div class="well">
+                        <div id="main_area">
+                            <!-- Slider -->
+                            <div class="row">
+                                <div class="col-sm-6" id="slider-thumbs">
+                                    <!-- Bottom switcher of slider -->
+                                    <ul class="hide-bullets">
+                                        @foreach($event->photos as $photo)
+                                            <li class="col-sm-3">
+                                                <a class="thumbnail" id="carousel-selector-{{ $photo->id }}">
+                                                    <img src="{{ url('images/events/' . $event->id . '/' . $photo->url) }}"
+                                                         class="img-responsive" alt="">
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="col-xs-12" id="slider">
+                                        <!-- Top part of the slider -->
+                                        <div class="row">
+                                            <div class="col-sm-12" id="carousel-bounding-box">
+                                                <div class="carousel slide" id="myCarousel">
+                                                    <!-- Carousel items -->
+                                                    <div class="carousel-inner">
+                                                        <div class="active item" data-slide-number="0">
+                                                            <img src="http://placehold.it/470x480&text={{ $event->title }}">
                                                         </div>
-                                                    @endforeach
 
+
+                                                        @foreach($event->photos as $photo)
+                                                            <div class="item" data-slide-number="{{ $photo->id }}">
+                                                                <img src="{{ url('images/events/' . $event->id . '/' . $photo->url) }}"
+                                                                     class="img-responsive" alt="">
+                                                            </div>
+                                                        @endforeach
+
+                                                    </div>
+                                                    <!-- Carousel nav -->
+                                                    <a class="left carousel-control" href="#myCarousel" role="button"
+                                                       data-slide="prev">
+                                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                                    </a>
+                                                    <a class="right carousel-control" href="#myCarousel" role="button"
+                                                       data-slide="next">
+                                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                                    </a>
                                                 </div>
-                                                <!-- Carousel nav -->
-                                                <a class="left carousel-control" href="#myCarousel" role="button"
-                                                   data-slide="prev">
-                                                    <span class="glyphicon glyphicon-chevron-left"></span>
-                                                </a>
-                                                <a class="right carousel-control" href="#myCarousel" role="button"
-                                                   data-slide="next">
-                                                    <span class="glyphicon glyphicon-chevron-right"></span>
-                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <!--/Slider-->
                             </div>
-                            <!--/Slider-->
-                        </div>
 
+                        </div>
                     </div>
 
-                    {{--<div class="well">--}}
-                    {{--<ul class="list-unstyled">--}}
-                    {{--@foreach($event->photos as $photo)--}}
-                    {{--<li class="list-unstyled">--}}
-                    {{--<div class="thumbnail">--}}
-                    {{--<img src="{{ url('images/events/' . $event->id . '/' . $photo->url) }}"--}}
-                    {{--class="img-responsive" alt="">--}}
-                    {{--</div>--}}
-                    {{--</li>--}}
-                    {{--@endforeach--}}
-                    {{--</ul>--}}
-                    {{--</div>--}}
                 @else
                     No photo
                 @endif
