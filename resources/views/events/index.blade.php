@@ -29,7 +29,7 @@
                         {{ $events->links() }}
                     </div>
                 @else
-                    No event
+                    <h2 class="text-center">No event</h2>
                 @endif
             </div>
         </div>

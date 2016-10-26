@@ -16,7 +16,7 @@
                 </div>
             @endforeach
         @else
-            Empty
+            <h2 class="text-center">No church</h2>
         @endif
     </div>
 </div>
