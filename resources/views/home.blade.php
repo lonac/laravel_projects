@@ -243,7 +243,17 @@
                     <div class="panel-body">
                         @if($church !== null)
                             @if($church->images->count()> 0)
-
+                                <ul class="list-unstyled">
+                                    @foreach($church->images as $image)
+                                        <li>
+                                            <div class="thumbnail">
+                                                <img src="{{ url('images/churches/' . $church->id . '/' . $image->url) }}"
+                                                     class="img-responsive"
+                                                     alt="{{ url('images/churches/' . $church->id . '/' . $image->url) }}">
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
                             @else
                                 No photo
                             @endif
