@@ -1,1 +1,1 @@
-{"version":3,"sources":["app.css"],"names":[],"mappings":"AAAA","file":"app.css","sourcesContent":[]}
+{"version":3,"sources":["components/carousel-gallery-thumbs.scss"],"names":[],"mappings":"AAAA;EACE,iBAAgB;EAChB,mBAAmB;EACnB,iBAAgB,EACjB;;AAED;EACE,WAAW,EACZ;;AAED;EACE,YAAY,EACb","file":"app.css","sourcesContent":[".hide-bullets {\r\n  list-style:none;\r\n  margin-left: -40px;\r\n  margin-top:20px;\r\n}\r\n\r\n.thumbnail {\r\n  padding: 0;\r\n}\r\n\r\n.carousel-inner>.item>img, .carousel-inner>.item>a>img {\r\n  width: 100%;\r\n}"]}
