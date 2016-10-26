@@ -47,4 +47,9 @@ class Church extends Model
     {
         return $this->hasMany('App\Event');
     }
+
+    public function images()
+    {
+        return $this->hasMany('App\ChurchImage');
+    }
 }
