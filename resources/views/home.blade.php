@@ -300,7 +300,8 @@
                                                 <td>{{ $event->time }}</td>
                                                 <td>{{ $event->created_at->diffForHumans() }}</td>
                                                 <td>{{ $event->updated_at->diffForHumans() }}</td>
-                                                <td><a href="#"><i class="fa fa-edit"></i>Edit</a></td>
+                                                <td><a href="{{ url('events/' . $event->id . '/' . $event->slug . '/edit') }}"><i
+                                                                class="fa fa-edit"></i>Edit</a></td>
                                                 <td><a href="#"><i class="fa fa-trash"></i>Delete</a></td>
                                             </tr>
                                         @endforeach
