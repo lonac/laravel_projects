@@ -16,18 +16,20 @@
 <body>
 <div id="footer">
 	<div class="row banner">
+		<form class="form-horizontal" role="form">
 		<div class="form-group">
-            <div class="col-lg-2 col-lg-offset-4">
+            <div class="col-lg-3 col-lg-offset-4">
 	            <label for="subscrib" class= "control-label">
 	            	Wants more update from Search Mychurch?</label>
                 <input type="email" class="form-control"  placeholder="Email- Address" name="emailsub">
             </div>
         </div> 
         <div class="form-group">
-	    	<div class="col-lg-6 col-lg-offset-4">
+	    	<div class="col-lg-8 col-lg-offset-4">
 	            <button type="submit" class="btn btn-primary">SUBSCRIBE</button>
 	        </div>
 		</div>
+	</form>
 	</div>
 		
 	<div class="row banner">
