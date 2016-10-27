@@ -10,8 +10,8 @@
     <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!-- Bootstrap Material Design -->
-{{--<link rel="stylesheet" type="text/css" href="/css/bootstrap-material-design.css">--}}
-{{--<link rel="stylesheet" type="text/css" href="/css/ripples.min.css">--}}
+<link rel="stylesheet" type="text/css" href="/css/bootstrap-material-design.css">
+<link rel="stylesheet" type="text/css" href="/css/ripples.min.css">
 
 <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/app.css">
