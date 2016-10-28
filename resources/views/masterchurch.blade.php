@@ -21,6 +21,14 @@
 
 @include('shared.navbar')
 
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            @include('partials.notification')
+        </div>
+    </div>
+</div>
+
 @yield('content')
 
 {{--@include('shared.footer')--}}
@@ -37,6 +45,10 @@
 {{--});--}}
 {{--</script>--}}
 <script src="/js/app.js"></script>
+<script>
+    $('#flash-overlay-modal').modal();
+    $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+</script>
 </body>
 
 </html>

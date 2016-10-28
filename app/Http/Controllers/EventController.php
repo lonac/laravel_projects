@@ -55,6 +55,8 @@ class EventController extends Controller
         $event->time = $request->input('time');
         $event->save();
 
+        flash('Event created successfully!');
+
         return redirect('home');
     }
 
