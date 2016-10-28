@@ -97,7 +97,7 @@ class ChurchImageController extends Controller
     public function makeFeatured($id)
     {
         $image = ChurchImage::with('church')->findOrFail($id);
-
+        $image->featured = true;
         $image->save();
 
         flash('Church featured photo set successfully');

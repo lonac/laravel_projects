@@ -24,15 +24,20 @@
                                                         {{ $image->description }}
                                                     </p>
                                                     <p>
-                                                    <form action="{{ url('church-photos/' . $image->id . '/make-featured') }}" method="POST" class="form-horizontal" role="form">
+                                                        @if($image->featured)
+                                                            <strong>Featured</strong>
+                                                    @else
+                                                        <form action="{{ url('church-photos/' . $image->id . '/make-featured') }}"
+                                                              method="POST" class="form-horizontal" role="form">
 
-                                                        {{ method_field('patch') }}
-                                                        {{ csrf_field() }}
+                                                            {{ method_field('patch') }}
+                                                            {{ csrf_field() }}
 
-                                                        <button type="submit" class="btn btn-primary">Make Featured
-                                                        </button>
-                                                    </form>
-                                                    </p>
+                                                            <button type="submit" class="btn btn-primary">Make Featured
+                                                            </button>
+                                                        </form>
+                                                        @endif
+                                                        </p>
                                                 </div>
                                             </div>
                                         </div>
