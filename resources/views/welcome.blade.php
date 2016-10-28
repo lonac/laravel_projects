@@ -20,7 +20,7 @@
             </div>
 
             <!--sidebar here!-->
-            <div class="col-md-7 col-lg-4">
+            <div class="col-md-4 col-lg-4">
                 @include('shared.sidebar')
             </div>
 
