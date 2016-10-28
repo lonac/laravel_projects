@@ -211,9 +211,9 @@ class ChurchController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id, $slug)
     {
-        $church = Church::with(['region', 'district', 'phones', 'emails', 'category'])->whereSlug($slug)->first();
+        $church = Church::with(['region', 'district', 'phones', 'emails', 'category'])->whereSlug($slug)->whereId($id)->first();
         // TODO exclude the current church
         $churches = Church::whereRegionId($church->region->id)->get();
         return view('churches.show', compact('church', 'churches'));

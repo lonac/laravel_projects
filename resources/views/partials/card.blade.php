@@ -7,7 +7,7 @@
     @endforeach
     <img src="#" class="img-responsive" alt="">
     <div class="caption">
-        <h2><a href="{{ url('churches/' . $church->slug) }}">{{ $church->name }}</a></h2>
+        <h2><a href="{{ url('churches/' . $church->id . '/' . $church->slug) }}">{{ $church->name }}</a></h2>
         <p>Category: <a href="{{ url('categories/' . $church->category->slug) }}">{{ $church->category->name }}</a></p>
         <p>Region: {{ $church->region->name }}</p>
         <p>District: {{ $church->district->name }}</p>
