@@ -279,6 +279,11 @@ class ChurchController extends Controller
         $slug = $request->input('slug');
         $church = Church::whereSlug($slug)->whereId($id)->first();
 
+        if ($church === null) {
+            flash()->error('Maybe this is not your church');
+            return redirect('account/profile');
+        }
+
         $church->delete();
 
         flash('Church deleted successfully');
