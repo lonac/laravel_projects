@@ -8,7 +8,7 @@
   bottom: 0;
   left: 0;
   padding: 1rem;
-  background-color: #000000;
+  background-color:#000000;
    color: blue;
 }
 </style>
