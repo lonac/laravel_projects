@@ -151,6 +151,9 @@
                                         <div class="carousel slide" id="myCarousel">
                                             <!-- Carousel items -->
                                             <div class="carousel-inner">
+                                                {{--<div class="active item" data-slide-number="0">--}}
+                                                {{--<img src="http://placehold.it/470x480&text={{ $church->name }}">--}}
+                                                {{--</div>--}}
 
                                                 <?php $i = 0; ?>
                                                 @foreach($church->photos as $photo)
