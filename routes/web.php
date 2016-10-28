@@ -104,6 +104,10 @@ Route::post('user/storeSocial', 'UserController@storeSocial');
 
 Route::get('church-photos/new', 'ChurchImageController@create');
 
+Route::get('church-photos/{id}/{slug}', 'ChurchImageController@index');
+
 Route::post('church-photos', 'ChurchImageController@store');
+
+Route::patch('church-photos/{id}/make-featured', 'ChurchImageController@makeFeatured');
 
 Route::post('event-photos', 'EventImageController@store');

@@ -265,6 +265,7 @@
                                         </li>
                                     @endforeach
                                 </ul>
+                                <a href="{{ url('church-photos/'.$church->id.'/'.$church->slug) }}">Manage</a>
                             @else
                                 No photo
                             @endif
