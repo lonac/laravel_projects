@@ -13,19 +13,7 @@
                 
                 {{ csrf_field() }}
 
-                <div class="form-group">
-                    <label for="category">Choose</label>
-                    <select name="category" id="category" class="form-control">
-                       @if($categories->count() > 0)
-                             <option value="">-- Select One --</option>
-                             @foreach($categories as $category)
-                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
-                             @endforeach
-                        @else
-                             <option value="">Empty</option>
-                        @endif
-                    </select>
-                </div>
+                @include('churches._form_category')
             
                 <button type="submit" class="btn btn-primary">Next</button>
             </form>

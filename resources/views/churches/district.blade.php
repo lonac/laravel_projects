@@ -13,19 +13,7 @@
                 
                 {{ csrf_field() }}
 
-                <div class="form-group">
-                    <label for="district">Choose</label>
-                    <select name="district" id="district" class="form-control">
-                       @if($districts->count() > 0)
-                             <option value="">-- Select One --</option>
-                             @foreach($districts as $district)
-                                 <option value="{{ $district->id }}">{{ $district->name }}</option>
-                             @endforeach
-                        @else
-                             <option value="">Empty</option>
-                        @endif
-                    </select>
-                </div>
+                @include('churches._form_district')
             
                 <button type="submit" class="btn btn-primary">Next</button>
             </form>

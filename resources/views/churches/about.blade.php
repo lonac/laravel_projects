@@ -13,10 +13,7 @@
                 
                 {{ csrf_field() }}
 
-                <div class="form-group">
-                    <label for="description">About</label>
-                    <textarea name="description" id="description" class="form-control" rows="10" placeholder="Write a short description about your church here." required="required"></textarea>
-                </div>
+                @include('churches._form_about')
             
                 <button type="submit" class="btn btn-primary">Next</button>
             </form>

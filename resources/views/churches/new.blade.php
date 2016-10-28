@@ -13,10 +13,7 @@
                 
                 {{ csrf_field() }}
             
-                <div class="form-group">
-                    <label for="name">Your church name</label>
-                    <input type="text" name="name" class="form-control" id="name" required="required">
-                </div>
+                @include('churches._form_name')
             
                 <button type="submit" class="btn btn-primary">Next</button>
             </form>

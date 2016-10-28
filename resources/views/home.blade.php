@@ -73,7 +73,8 @@
                         @endif
                     </div>
                     <div class="panel-footer">
-
+                        <a href="{{ url('churches/' . $church->id . '/' . $church->slug . '/edit') }}"><i
+                                    class="material-icons">edit</i></a>
                     </div>
                 </div>
                 <div class="panel panel-info">
