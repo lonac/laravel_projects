@@ -112,12 +112,17 @@ class EventController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Request $request
-     * @param Task $task
+     * @param Event $event
      * @return \Illuminate\Http\Response
+     * @internal param Task $task
      * @internal param int $id
      */
     public function destroy(Request $request, Event $event)
     {
         $this->authorize('destroy', $event);
+
+        $event->delete();
+
+        return redirect('home');
     }
 }
