@@ -90,7 +90,11 @@
                                         <td>
                                             <ul>
                                                 @foreach($church->phones as $phone)
-                                                    <li>{{ $phone->number }}</li>
+                                                    <li>{{ $phone->number }}
+                                                        <a href="{{ url('phones/' . $phone->id . '/edit') }}" title="Edit">
+                                                            <small><i class="material-icons">edit</i></small>
+                                                        </a>
+                                                    </li>
                                                 @endforeach
                                             </ul>
                                         </td>
@@ -362,4 +366,5 @@
                 </div>
             </div>
         </div>
+    </div>
 @endsection
