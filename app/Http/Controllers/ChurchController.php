@@ -259,6 +259,7 @@ class ChurchController extends Controller
         $church->category_id = $request->input('category');
         $church->description = $request->input('description');
         $church->address = $request->input('address');
+        $church->other_name = $request->input('other_name');
         $church->save();
 
         flash('Church updated successfully');

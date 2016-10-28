@@ -8,9 +8,9 @@
         <div class="col-xs-12 col-sm-12">
 
             <h2>Contact Information</h2>
- 
+
             <form action="{{ url('church/contact') }}" method="POST" role="form">
-                
+
                 {{ csrf_field() }}
 
                 <div class="form-group">
@@ -21,7 +21,7 @@
                     <label for="email">Email</label>
                     <input type="email" name="email" id="inputEmail" class="form-control" value="" required="required" title="Email address">
                 </div>
-            
+
                 <button type="submit" class="btn btn-primary">Next</button>
             </form>
 

@@ -20,6 +20,7 @@
                     @include('churches._form_category')
                     @include('churches._form_about')
                     @include('churches._form_address')
+                    @include('churches._form_other-name')
 
                     <div class="form-group">
                         <div class="col-sm-10 col-sm-offset-2">

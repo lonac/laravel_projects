@@ -73,8 +73,10 @@
                         @endif
                     </div>
                     <div class="panel-footer">
-                        <a href="{{ url('churches/' . $church->id . '/' . $church->slug . '/edit') }}"><i
-                                    class="material-icons">edit</i></a>
+                        @if(isset($church))
+                            <a href="{{ url('churches/' . $church->id . '/' . $church->slug . '/edit') }}"><i
+                                        class="material-icons">edit</i></a>
+                        @endif
                     </div>
                 </div>
                 <div class="panel panel-info">
