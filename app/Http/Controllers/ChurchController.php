@@ -270,11 +270,19 @@ class ChurchController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param Request $request
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $slug = $request->input('slug');
+        $church = Church::whereSlug($slug)->whereId($id)->first();
+
+        $church->delete();
+
+        flash('Church deleted successfully');
+
+        return redirect('account/profile');
     }
 }

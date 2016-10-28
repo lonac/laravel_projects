@@ -129,6 +129,53 @@
                         </h3>
                     @endif
                 </div>
+                @if(Auth::user()->church !== null)
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Danger zone</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form action="{{ url('churches/' . Auth::user()->church->id) }}" method="POST"
+                                  class="form-horizontal" role="form">
+
+                                {{ method_field('delete') }}
+                                {{ csrf_field() }}
+
+                                <a class="btn btn-danger" data-toggle="modal" href='#modal-id'>Delete Church</a>
+                                <div class="modal fade" id="modal-id">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title">Delete {{ Auth::user()->church->name }}</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-sm-8 col-sm-offset-2">
+                                                        <div class="form-group">
+                                                            Write <strong>
+                                                                {{ Auth::user()->church->slug }}
+                                                            </strong> to confirm that you want
+                                                            to delete that church.
+                                                            <input type="text" name="slug" id="slug"
+                                                                   class="form-control">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                                </button>
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
