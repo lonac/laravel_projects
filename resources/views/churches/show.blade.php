@@ -151,14 +151,11 @@
                                         <div class="carousel slide" id="myCarousel">
                                             <!-- Carousel items -->
                                             <div class="carousel-inner">
-                                                {{--<div class="active item" data-slide-number="0">--}}
-                                                    {{--<img src="http://placehold.it/470x480&text={{ $church->name }}">--}}
-                                                {{--</div>--}}
 
-                                                <?php $i = 1; ?>
+                                                <?php $i = 0; ?>
                                                 @foreach($church->photos as $photo)
                                                     <?php $i++; ?>
-                                                    <div class="{{ ($i == 1) ? ' active ' : '' }} item"
+                                                    <div class="{{ ($i == 1) ? 'active ' : '' }} item"
                                                          data-slide-number="{{ $photo->id }}">
                                                         <img src="{{ url('images/churches/' . $church->id . '/' . $photo->url) }}"
                                                              class="img-responsive" alt="">

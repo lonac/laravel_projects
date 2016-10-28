@@ -33,7 +33,7 @@
 
 {{--@include('shared.footer')--}}
 
-<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script src="/jquery/dist/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 {{--<script src="/js/ripples.min.js"></script>--}}
