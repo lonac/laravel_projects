@@ -14,7 +14,7 @@
                 @if($regions->count() > 0)
                     <div class="list-group">
                         @foreach($regions as $region)
-                            <a href="{{ url('regions/' . $region->slug) }}" class="list-group-item">{{ $region->name }}</a>
+                            <a href="{{ url('regions/' . $region->slug) }}" class="list-group-item">{{ $region->name }} <span class="badge">{{ $region->churches->count() }}</span></a>
                         @endforeach
                     </div> 
                     @else
