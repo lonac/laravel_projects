@@ -62,6 +62,7 @@ Route::post('events', 'EventController@store');
 Route::get('events/new', 'EventController@create');
 Route::get('events/{id}/{slug}/edit', 'EventController@edit');
 Route::patch('events/{id}', 'EventController@update');
+Route::delete('events/{id}', 'EventController@destroy');
 
 Route::get('account/profile', 'UserController@show');
 
