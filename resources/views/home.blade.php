@@ -91,7 +91,8 @@
                                             <ul>
                                                 @foreach($church->phones as $phone)
                                                     <li>{{ $phone->number }}
-                                                        <a href="{{ url('phones/' . $phone->id . '/edit') }}" title="Edit">
+                                                        <a href="{{ url('phones/' . $phone->id . '/edit') }}"
+                                                           title="Edit">
                                                             <small><i class="material-icons">edit</i></small>
                                                         </a>
                                                     </li>
@@ -145,7 +146,12 @@
                                         <td>
                                             <ul>
                                                 @foreach($church->emails as $email)
-                                                    <li>{{ $email->address }}</li>
+                                                    <li>{{ $email->address }}
+                                                        <a href="{{ url('emails/' . $email->id . '/edit') }}"
+                                                           title="Edit">
+                                                            <small><i class="material-icons">edit</i></small>
+                                                        </a>
+                                                    </li>
                                                 @endforeach
                                             </ul>
                                         </td>
