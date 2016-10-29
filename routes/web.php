@@ -116,3 +116,4 @@ Route::post('event-photos', 'EventImageController@store');
 Route::get('search',array('as'=>'search','uses'=>'SearchController@search'));
 
 Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'SearchController@autocomplete'));
+
