@@ -14,10 +14,11 @@ class SearchController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function search()
+    public function search(Request $request)
 
     {
-        return view('search');
+        $churches = Church::where('name', 'like', '%' . $request->input('q') . '%')->paginate(12);
+        return view('search', compact('churches'));
     }
 
 
@@ -30,7 +31,7 @@ class SearchController extends Controller
     public function autocomplete(Request $request)
 
     {
-        $data = Church::select("name as name")->where("name", "LIKE", "%{$request->input('query')}%")->get();
+        $data = Church::select("name")->where("name", "LIKE", "%{$request->input('query')}%")->get();
         return response()->json($data);
     }
 }
