@@ -21,11 +21,19 @@
 
 @include('shared.navbar')
 
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            @include('partials.notification')
+        </div>
+    </div>
+</div>
+
 @yield('content')
 
-@include('shared.footer')
+{{--@include('shared.footer')--}}
 
-<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script src="/jquery/dist/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 {{--<script src="/js/ripples.min.js"></script>--}}
@@ -37,6 +45,10 @@
 {{--});--}}
 {{--</script>--}}
 <script src="/js/app.js"></script>
+<script>
+    $('#flash-overlay-modal').modal();
+    $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+</script>
 </body>
 
 </html>

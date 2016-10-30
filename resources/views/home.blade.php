@@ -73,7 +73,10 @@
                         @endif
                     </div>
                     <div class="panel-footer">
-
+                        @if(isset($church))
+                            <a href="{{ url('churches/' . $church->id . '/' . $church->slug . '/edit') }}"><i
+                                        class="material-icons">edit</i></a>
+                        @endif
                     </div>
                 </div>
                 <div class="panel panel-info">
@@ -90,7 +93,12 @@
                                         <td>
                                             <ul>
                                                 @foreach($church->phones as $phone)
-                                                    <li>{{ $phone->number }}</li>
+                                                    <li>{{ $phone->number }}
+                                                        <a href="{{ url('phones/' . $phone->id . '/edit') }}"
+                                                           title="Edit">
+                                                            <small><i class="material-icons">edit</i></small>
+                                                        </a>
+                                                    </li>
                                                 @endforeach
                                             </ul>
                                         </td>
@@ -141,7 +149,12 @@
                                         <td>
                                             <ul>
                                                 @foreach($church->emails as $email)
-                                                    <li>{{ $email->address }}</li>
+                                                    <li>{{ $email->address }}
+                                                        <a href="{{ url('emails/' . $email->id . '/edit') }}"
+                                                           title="Edit">
+                                                            <small><i class="material-icons">edit</i></small>
+                                                        </a>
+                                                    </li>
                                                 @endforeach
                                             </ul>
                                         </td>
@@ -254,6 +267,7 @@
                                         </li>
                                     @endforeach
                                 </ul>
+                                <a href="{{ url('church-photos/'.$church->id.'/'.$church->slug) }}">Manage</a>
                             @else
                                 No photo
                             @endif
@@ -300,9 +314,48 @@
                                                 <td>{{ $event->time }}</td>
                                                 <td>{{ $event->created_at->diffForHumans() }}</td>
                                                 <td>{{ $event->updated_at->diffForHumans() }}</td>
-                                                <td><a href="{{ url('events/' . $event->id . '/' . $event->slug . '/edit') }}"><i
-                                                                class="fa fa-edit"></i>Edit</a></td>
-                                                <td><a href="#"><i class="fa fa-trash"></i>Delete</a></td>
+                                                <td>
+                                                    <a href="{{ url('events/' . $event->id . '/' . $event->slug . '/edit') }}"><i
+                                                                class="material-icons">edit</i></a></td>
+                                                <td>
+                                                    <a data-toggle="modal" href='#event{{ $event->id }}'><i
+                                                                class="material-icons">delete</i></a>
+                                                    <div class="modal fade" id="event{{ $event->id }}">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close"
+                                                                            data-dismiss="modal"
+                                                                            aria-hidden="true">&times;</button>
+                                                                    <h4 class="modal-title">
+                                                                        Deleting {{ $event->title }}</h4>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    Are you sure that you want to delete
+                                                                    <strong>{{ $event->title }}</strong>?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <form action="{{ url('events/'.$event->id) }}"
+                                                                          method="POST">
+                                                                        {{ csrf_field() }}
+                                                                        {{ method_field('DELETE') }}
+
+                                                                        <button type="button" class="btn btn-default"
+                                                                                data-dismiss="modal"><i
+                                                                                    class="material-icons">cancel</i>
+                                                                        </button>
+                                                                        <button type="submit"
+                                                                                id="delete-event-{{ $event->id }}"
+                                                                                class="btn btn-danger">
+                                                                            <i class="material-icons">delete_forever</i>
+                                                                        </button>
+                                                                    </form>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         @endforeach
                                         </tbody>
@@ -323,4 +376,5 @@
                 </div>
             </div>
         </div>
+    </div>
 @endsection

@@ -40,7 +40,7 @@ class ChurchController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     public function new()
@@ -53,20 +53,20 @@ class ChurchController extends Controller
         $this->validate($request, [
             'name' => 'required|unique:churches|max:255',
         ]);
-        $request->session()->put('name', $request->input('name')); 
-       
+        $request->session()->put('name', $request->input('name'));
+
         return redirect('church/region');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        
+
     }
 
     public function region()
@@ -78,9 +78,9 @@ class ChurchController extends Controller
     public function regionStore(Request $request)
     {
         $this->validate($request, [
-            'region' => 'required', 
-        ]);        
-        $request->session()->put('region', $request->input('region'));              
+            'region' => 'required',
+        ]);
+        $request->session()->put('region', $request->input('region'));
         return redirect('church/district');
     }
 
@@ -93,23 +93,23 @@ class ChurchController extends Controller
     public function districtStore(Request $request)
     {
         $this->validate($request, [
-            'district' => 'required', 
-        ]);        
-        $request->session()->put('district', $request->input('district'));         
+            'district' => 'required',
+        ]);
+        $request->session()->put('district', $request->input('district'));
         return redirect('church/about');
-    }  
+    }
 
     public function about()
     {
         return view('churches.about');
-    }  
+    }
 
     public function aboutStore(Request $request)
     {
         $this->validate($request, [
-            'description' => 'required', 
-        ]);        
-        $request->session()->put('description', $request->input('description'));          
+            'description' => 'required',
+        ]);
+        $request->session()->put('description', $request->input('description'));
         return redirect('church/contact');
     }
 
@@ -121,11 +121,11 @@ class ChurchController extends Controller
     public function contactStore(Request $request)
     {
         $this->validate($request, [
-            'phone' => 'required', 
-            'email' => 'required', 
-        ]);        
-        $request->session()->put('phone', $request->input('phone'));         
-        $request->session()->put('email', $request->input('email'));         
+            'phone' => 'required',
+            'email' => 'required',
+        ]);
+        $request->session()->put('phone', $request->input('phone'));
+        $request->session()->put('email', $request->input('email'));
         return redirect('church/address');
     }
 
@@ -137,10 +137,10 @@ class ChurchController extends Controller
     public function addressStore(Request $request)
     {
         $this->validate($request, [
-            'address' => 'required', 
+            'address' => 'required',
         ]);
-        $request->session()->put('address', $request->input('address'));                  
-        return redirect('church/category');        
+        $request->session()->put('address', $request->input('address'));
+        return redirect('church/category');
     }
 
     public function category()
@@ -154,7 +154,7 @@ class ChurchController extends Controller
         // $this->validate($request, [
         //     'category' => 'required',
         // ]);        
-        $request->session()->put('category', $request->input('category'));         
+        $request->session()->put('category', $request->input('category'));
         return redirect('church/other-name');
     }
 
@@ -166,9 +166,9 @@ class ChurchController extends Controller
     public function otherNameStore(Request $request)
     {
 
-        $request->session()->put('other_name', $request->input('other_name'));  
+        $request->session()->put('other_name', $request->input('other_name'));
 
-        
+
         $church = new Church();
         $name = $request->session()->pull('name', 'default');
         $church->name = $name;
@@ -180,12 +180,12 @@ class ChurchController extends Controller
         $church->district_id = $district;
         $description = $request->session()->pull('description', 'default');
         $church->description = $description;
-        $address = $request->session()->pull('address', 'default');        
+        $address = $request->session()->pull('address', 'default');
         $church->address = $address;
         $category = $request->session()->pull('category', 'default');
         $church->category_id = $category;
         $other_name = $request->session()->pull('other_name', 'default');
-        $church->other_name = $other_name;        
+        $church->other_name = $other_name;
         $church->user_id = Auth::user()->id;
 
         $church->save();
@@ -208,12 +208,12 @@ class ChurchController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id, $slug)
     {
-        $church = Church::with(['region', 'district', 'phones', 'emails', 'category'])->whereSlug($slug)->first();
+        $church = Church::with(['region', 'district', 'phones', 'emails', 'category'])->whereSlug($slug)->whereId($id)->first();
         // TODO exclude the current church
         $churches = Church::whereRegionId($church->region->id)->get();
         return view('churches.show', compact('church', 'churches'));
@@ -222,30 +222,55 @@ class ChurchController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $slug)
     {
-        //
+        $church = Church::whereSlug($slug)->whereId($id)->first();
+        $regions = Region::all();
+        $districts = District::all();
+        $categories = Category::all();
+        return view('churches.edit', compact('church', 'regions', 'districts', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $slug)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'region' => 'required',
+            'district' => 'required',
+            'category' => 'required',
+            'description' => 'min:10',
+            'address' => 'required',
+        ]);
+
+        $church = Church::whereSlug($slug)->whereId($id)->first();
+        $church->name = $request->input('name');
+        $church->region_id = $request->input('region');
+        $church->district_id = $request->input('district');
+        $church->category_id = $request->input('category');
+        $church->description = $request->input('description');
+        $church->address = $request->input('address');
+        $church->other_name = $request->input('other_name');
+        $church->save();
+
+        flash('Church updated successfully');
+
+        return redirect('home');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

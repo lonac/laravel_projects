@@ -76,7 +76,7 @@
                     </div>
 
                 @else
-                    No photo
+                    {{--No photo--}}
                 @endif
             </div>
             <div class="col-sm-3">

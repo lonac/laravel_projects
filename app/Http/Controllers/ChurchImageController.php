@@ -16,9 +16,10 @@ class ChurchImageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $images = ChurchImage::with('church')->whereChurchId($id)->get();
+        return view('church-photos.index', compact('images'));
     }
 
     /**
@@ -91,6 +92,17 @@ class ChurchImageController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function makeFeatured($id)
+    {
+        $image = ChurchImage::with('church')->findOrFail($id);
+        $image->featured = true;
+        $image->save();
+
+        flash('Church featured photo set successfully');
+
+        return redirect('home');
     }
 
     /**

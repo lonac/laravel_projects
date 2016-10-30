@@ -70,7 +70,8 @@ class EmailController extends Controller
      */
     public function edit($id)
     {
-        //
+        $email = Email::findOrFail($id);
+        return view('emails.edit', compact('email'));
     }
 
     /**
@@ -82,7 +83,17 @@ class EmailController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'email' => 'required|email',
+        ]);
+
+        $email = Email::findOrFail($id);
+        $email->address = $request->input('email');
+        $email->save();
+
+        flash('Email address updated successfully');
+
+        return redirect('home');
     }
 
     /**

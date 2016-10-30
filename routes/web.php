@@ -48,7 +48,10 @@ Route::get('home', 'HomeController@index');
 Route::get('email-verification/error', 'Auth\RegisterController@getVerificationError')->name('email-verification.error');
 Route::get('email-verification/check/{token}', 'Auth\RegisterController@getVerification')->name('email-verification.check');
 
-Route::resource('churches', 'ChurchController');
+Route::get('churches', 'ChurchController@index');
+Route::get('churches/{id}/{slug}', 'ChurchController@show');
+Route::get('churches/{id}/{slug}/edit', 'ChurchController@edit');
+Route::patch('churches/{id}/{slug}', 'ChurchController@update');
 
 Route::resource('regions', 'RegionController');
 
@@ -62,6 +65,7 @@ Route::post('events', 'EventController@store');
 Route::get('events/new', 'EventController@create');
 Route::get('events/{id}/{slug}/edit', 'EventController@edit');
 Route::patch('events/{id}', 'EventController@update');
+Route::delete('events/{id}', 'EventController@destroy');
 
 Route::get('account/profile', 'UserController@show');
 
@@ -101,6 +105,10 @@ Route::post('user/storeSocial', 'UserController@storeSocial');
 
 Route::get('church-photos/new', 'ChurchImageController@create');
 
+Route::get('church-photos/{id}/{slug}', 'ChurchImageController@index');
+
 Route::post('church-photos', 'ChurchImageController@store');
+
+Route::patch('church-photos/{id}/make-featured', 'ChurchImageController@makeFeatured');
 
 Route::post('event-photos', 'EventImageController@store');

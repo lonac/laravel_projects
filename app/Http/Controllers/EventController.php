@@ -55,6 +55,8 @@ class EventController extends Controller
         $event->time = $request->input('time');
         $event->save();
 
+        flash('Event created successfully!');
+
         return redirect('home');
     }
 
@@ -111,11 +113,20 @@ class EventController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param $id
      * @return \Illuminate\Http\Response
+     * @internal param Request $request
+     * @internal param Event $event
+     * @internal param Task $task
+     * @internal param int $id
      */
     public function destroy($id)
     {
-        //
+        $event = Event::with('church')->find($id);
+        if (Auth::user()->id === $event->church->user_id) {
+            $event->delete();
+        }
+
+        return redirect('home');
     }
 }
