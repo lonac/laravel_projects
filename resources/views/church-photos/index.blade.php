@@ -17,7 +17,7 @@
                                     @foreach($imagesSet as $image)
                                         <div class="col-xs-12 col-sm-4">
                                             <div class="thumbnail">
-                                                <img src="{{ url('images/churches/' . $image->church->id . '/' . $image->url) }}"
+                                                <img src="{{ url('images/churches/' . $image->church_id . '/' . $image->url) }}"
                                                      class="img-responsive" alt="">
                                                 <div class="caption">
                                                     <p>
