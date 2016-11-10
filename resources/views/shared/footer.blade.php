@@ -8,7 +8,7 @@
   bottom: 0;
   left: 0;
   padding: 1rem;
-  background-color: #000000;
+  background-color:#000000;
    color: blue;
 }
 </style>
@@ -60,6 +60,9 @@
              <p><li><a href="http://localhost:8000/about">ABOUT US</a></li></p>
              <p><li><a href="http://localhost:8000/contact">CONTACTS</a></li></p>
               <li><a href="#">TERMS AND CONDITIONS</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">References</a></li>
+
 		</div>	
 	</div>
 

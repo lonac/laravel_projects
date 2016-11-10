@@ -6,6 +6,6 @@
         	<li><a href="#">Listen live service</a></li>
             <li><a href="#">Search church</a></li>
             <li><a href="#">Visit church</a></li>
-           
+            <li><a href="#">Read Books from different ministers</a></li>
         </ul>
     </nav>
