@@ -38,15 +38,6 @@
                     </div>
                 </div>
             </div>
-
-            <!--second column-->
-            <div class="col-md-4 col-lg-4">
-                @include('searchnav')
-            </div>
-
-            <!--sidebar here!-->
-            <div class="col-md-4 col-lg-4">
-                @include('shared.sidebar')
             <div class="col-xs-12 col-sm-6">
                 <div class="thumbnail">
                     <img data-src="#" alt="">
@@ -68,7 +59,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-body">
                         <h2>Looking for a Church?</h2>
-                        <p>Start seaching to find the church that's right for you.</p>
+                        <p>Start searching to find the church that's right for you.</p>
                         <p><a href="{{ url('search') }}" class="btn btn-info">SEARCH</a></p>
                     </div>
                 </div>
