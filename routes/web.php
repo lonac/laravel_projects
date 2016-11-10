@@ -113,3 +113,8 @@ Route::post('church-photos', 'ChurchImageController@store');
 Route::patch('church-photos/{id}/make-featured', 'ChurchImageController@makeFeatured');
 
 Route::post('event-photos', 'EventImageController@store');
+
+Route::get('search',array('as'=>'search','uses'=>'SearchController@search'));
+
+Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'SearchController@autocomplete'));
+

@@ -245,9 +245,11 @@
                             Empty
                         @endif
                     </div>
+                    @if($church !== null)
                     <div class="panel-footer">
                         <a href="{{ url('periods/create') }}" class="btn btn-primary">Add</a>
                     </div>
+                    @endif
                 </div>
                 <div class="panel panel-danger">
                     <div class="panel-heading">
@@ -275,9 +277,11 @@
                             Add church first
                         @endif
                     </div>
-                    <div class="panel-footer">
-                        <a href="{{ url('church-photos/new') }}"><i class="material-icons">add</i></a>
-                    </div>
+                    @if($church !== null)
+                        <div class="panel-footer">
+                            <a href="{{ url('church-photos/new') }}"><i class="material-icons">add</i></a>
+                        </div>
+                    @endif
                 </div>
             </div>
 

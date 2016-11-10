@@ -9,4 +9,13 @@
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
   width: 100%; }
 
+footer {
+  background: #0277bd;
+  color: #fff;
+  padding-top: 4em; }
+  footer li a {
+    color: #fff; }
+  footer li a:hover {
+    text-decoration: none; }
+
 /*# sourceMappingURL=app.css.map */
