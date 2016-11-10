@@ -52,6 +52,7 @@ Route::get('churches', 'ChurchController@index');
 Route::get('churches/{id}/{slug}', 'ChurchController@show');
 Route::get('churches/{id}/{slug}/edit', 'ChurchController@edit');
 Route::patch('churches/{id}/{slug}', 'ChurchController@update');
+Route::delete('churches/{id}', 'ChurchController@destroy');
 
 Route::resource('regions', 'RegionController');
 

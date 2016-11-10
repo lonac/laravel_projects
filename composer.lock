@@ -5,12 +5,17 @@
         "This file is @generated automatically"
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
     "hash": "0844032fe1914ed8cab1e982a0cf9bbb",
     "content-hash": "f1372fb77f28cb554f1493bb1c6b1383",
 =======
     "hash": "21aafb57d6fcafafa44b76c7a1ed9706",
     "content-hash": "421b2e04d28f7eee5eb70bfb7be49bff",
 >>>>>>> develop
+=======
+    "hash": "21aafb57d6fcafafa44b76c7a1ed9706",
+    "content-hash": "421b2e04d28f7eee5eb70bfb7be49bff",
+>>>>>>> 7dc70051052f36b9560f5e5e092131d2419f864c
     "packages": [
         {
             "name": "classpreloader/classpreloader",
