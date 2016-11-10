@@ -8,20 +8,24 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ url('/') }}"><b>Search MyChurch</b></a>
+            <a class="navbar-brand" href="{{ url('/') }}">Search MyChurch</a>
         </div>
 
         <!-- Navbar Right -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="{{ url('home') }}">Home</a></li>
-                <li><a href="{{ url('about') }}">About</a></li>
-                <li><a href="{{ url('contact') }}">Contact</a></li>
+            <ul class="nav navbar-nav">
+                <li><a href="{{ url('churches') }}">Browse</a></li>
+                <li><a href="{{ url('regions') }}">Regions</a></li>
+                <li><a href="{{ url('districts') }}">Districts</a></li>
+                <li><a href="{{ url('categories') }}">Categories</a></li>
                 <li><a href="{{ url('events') }}">Events</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="{{ url('home') }}">Dashboard</a></li>
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ url('/users/login') }}">Login</a></li>
-                    <li><a href="{{ url('/users/register') }}">Register</a></li>
+                    <li><a href="{{ url('login') }}">Login</a></li>
+                    <li><a href="{{ url('register') }}">Register</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -29,6 +33,8 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url('account/profile') }}">Profile</a></li>
+                            <li><a href="#">Help</a></li>
                             <li>
                                 <a href="{{ url('/logout') }}"
                                     onclick="event.preventDefault();

@@ -19,12 +19,9 @@
                 @include('searchnav')
             </div>
 
-            <!--third column-->
+            <!--sidebar here!-->
             <div class="col-md-4 col-lg-4">
-                <!--firsr row-->
-                <div class="row">
-                all links of the page to other websites like social network will be placed in here
-                </div>
+                @include('shared.sidebar')
             </div>
 
         </div>
@@ -33,7 +30,7 @@
         <div class="row-banner">
 
             <!--first column-->
-            <div class="col-md-2 col-lg-3" style="background-color: #a7cece;">
+            <div class="col-md-2 col-lg-3">
             first column
             </div>
 

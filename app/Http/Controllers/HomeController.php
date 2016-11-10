@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Church;
+
+use Auth;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +27,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // TODO group by day_id
+        $church = Church::with(['periods', 'events', 'photos'])->whereUserId(Auth::user()->id)->first();
+        return view('home', compact('church'));
     }
 }
