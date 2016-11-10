@@ -31,7 +31,7 @@
 
 @yield('content')
 
-{{--@include('shared.footer')--}}
+@include('shared.footer')
 
 <script src="/jquery/dist/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
