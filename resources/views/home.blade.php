@@ -10,7 +10,7 @@
     @endif
 
     @if(Auth::user()->verified == 0)
-        <div class="alert alert-danger">
+        <div class="alert alert-danger alert-important">
             <h3 class="text-center">Your account is not activated. Go to your email to activate your account.</h3>
         </div>
     @endif
@@ -223,10 +223,42 @@
                                         @foreach($church->periods as $period)
                                             <tr>
                                                 <th>{{ $period->day->name }}</th>
-                                                <td colspan="2"><a href="{{ url('#') }}">{{ $period->title }}</a></td>
+                                                <td colspan="2"><a href="{{ url('/') }}">{{ $period->title }}</a></td>
                                             </tr>
                                             <tr colspan="3">
-                                                <td>&nbsp;</td>
+                                                <td>
+                                                    <a href="{{ url('periods/' . $period->id . '/' . $period->slug . '/edit') }}">Edit</a> | 
+                                                    <a data-toggle="modal" href='#{{ $period->id }}'>Delete</a>
+                                                    <div class="modal fade" id="{{ $period->id }}">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                                    <h4 class="modal-title">Delete {{ $period->title }}</h4>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <strong>Are you sure?</strong>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <form action="{{ url('periods/'.$period->id) }}"
+                                                                          method="POST">
+                                                                        {{ csrf_field() }}
+                                                                        {{ method_field('DELETE') }}
+
+                                                                        <button type="button" class="btn btn-default"
+                                                                                data-dismiss="modal"><i
+                                                                                    class="material-icons">cancel</i>
+                                                                        </button>
+                                                                        <button type="submit"
+                                                                                class="btn btn-danger">
+                                                                            <i class="material-icons">delete_forever</i>
+                                                                        </button>
+                                                                    </form>                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
                                                 <td>
                                                     <small>{{ \Carbon\Carbon::parse($period->start_time)->format('h:i a')  }}</small>
                                                 </td>

@@ -10,8 +10,8 @@
     <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!-- Bootstrap Material Design -->
-<link rel="stylesheet" type="text/css" href="/css/bootstrap-material-design.css">
-<link rel="stylesheet" type="text/css" href="/css/ripples.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-material-design.css">
+    <link rel="stylesheet" type="text/css" href="/css/ripples.min.css">
 
 <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/app.css">
@@ -45,10 +45,10 @@
     });
 </script>
 <script src="/js/app.js"></script>
-<script>
+{{-- <script>
     $('#flash-overlay-modal').modal();
     $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
-</script>
+</script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 <script type="text/javascript">
     var path = "{{ route('autocomplete') }}";

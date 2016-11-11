@@ -79,9 +79,11 @@ class PeriodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $slug)
     {
-        //
+        $days = Day::all();
+        $period = Period::whereId($id)->whereSlug($slug)->first();
+        return view('periods.edit', compact('period', 'days'));
     }
 
     /**
@@ -93,7 +95,23 @@ class PeriodController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // TODO validation is required
+        $period = Period::findOrFail($id);
+        $period->church_id = Church::whereUserId(Auth::user()->id)->first()->id;
+        $period->title = $request->input('title');
+        $period->slug = str_slug($request->input('title'), '-');
+        $period->description = $request->input('description');
+        $period->start_time = $request->input('start_time');
+        $period->finish_time = $request->input('finish_time');
+        if($request->input('published') !== null){
+            $period->published = $request->input('published');
+        }
+        $period->day_id = $request->input('day');
+        $period->save();
+
+        flash()->success('Session updated successfully.');
+
+        return redirect('home');
     }
 
     /**
@@ -104,6 +122,11 @@ class PeriodController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $period = Period::findOrFail($id);
+        $period->delete();
+
+        flash()->success('Period deleted.');
+
+        return redirect('home');
     }
 }

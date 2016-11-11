@@ -94,7 +94,12 @@ Route::post('church/address', 'ChurchController@addressStore');
 Route::get('church/other-name', 'ChurchController@otherName');
 Route::post('church/other-name', 'ChurchController@otherNameStore');
 
-Route::resource('periods', 'PeriodController');
+Route::get('periods', 'PeriodController@index');
+Route::get('periods/{id}/{slug}', 'PeriodController@show');
+Route::get('periods/{id}/{slug}/edit', 'PeriodController@edit');
+Route::post('periods', 'PeriodController@store');
+Route::patch('periods/{id}', 'PeriodController@update');
+Route::delete('periods/{id}', 'PeriodController@destroy');
 
 Route::resource('phones', 'PhoneController');
 
