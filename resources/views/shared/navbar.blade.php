@@ -14,19 +14,19 @@
         <!-- Navbar Right -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="{{ url('churches') }}">Browse</a></li>
-                <li><a href="{{ url('regions') }}">Regions</a></li>
-                <li><a href="{{ url('districts') }}">Districts</a></li>
-                <li><a href="{{ url('categories') }}">Categories</a></li>
-                <li><a href="{{ url('events') }}">Events</a></li>
+                <li class="{{ Request::is('churches') == 'churches' ? 'active' : '' }}"><a href="{{ url('churches') }}">Browse</a></li>
+                <li class="{{ Request::is('regions') == 'regions' ? 'active' : '' }}"><a href="{{ url('regions') }}">Regions</a></li>
+                <li class="{{ Request::is('districts') == 'districts' ? 'active' : '' }}"><a href="{{ url('districts') }}">Districts</a></li>
+                <li class="{{ Request::is('categories') == 'categories' ? 'active' : '' }}"><a href="{{ url('categories') }}">Categories</a></li>
+                <li class="{{ Request::is('events') == 'events' ? 'active' : '' }}"><a href="{{ url('events') }}">Events</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="{{ url('home') }}">Dashboard</a></li>
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li><a href="{{ url('login') }}">Login</a></li>
                     <li><a href="{{ url('register') }}">Register</a></li>
                 @else
+                    <li class="{{ Request::is('home') == 'home' ? 'active' : '' }}"><a href="{{ url('home') }}">Dashboard</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>
