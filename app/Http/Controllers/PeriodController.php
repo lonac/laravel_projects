@@ -122,6 +122,11 @@ class PeriodController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $period = Period::findOrFail($id);
+        $period->delete();
+
+        flash()->success('Period deleted.');
+
+        return redirect('home');
     }
 }

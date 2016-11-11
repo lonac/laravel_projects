@@ -98,6 +98,7 @@ Route::get('periods/{id}/{slug}', 'PeriodController@show');
 Route::get('periods/{id}/{slug}/edit', 'PeriodController@edit');
 Route::post('periods', 'PeriodController@store');
 Route::patch('periods/{id}', 'PeriodController@update');
+Route::delete('periods/{id}', 'PeriodController@destroy');
 
 Route::resource('phones', 'PhoneController');
 

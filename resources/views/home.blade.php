@@ -228,7 +228,36 @@
                                             <tr colspan="3">
                                                 <td>
                                                     <a href="{{ url('periods/' . $period->id . '/' . $period->slug . '/edit') }}">Edit</a> | 
-                                                    <a href="#">Delete</a>
+                                                    <a data-toggle="modal" href='#{{ $period->id }}'>Delete</a>
+                                                    <div class="modal fade" id="{{ $period->id }}">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                                    <h4 class="modal-title">Delete {{ $period->title }}</h4>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <strong>Are you sure?</strong>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <form action="{{ url('periods/'.$period->id) }}"
+                                                                          method="POST">
+                                                                        {{ csrf_field() }}
+                                                                        {{ method_field('DELETE') }}
+
+                                                                        <button type="button" class="btn btn-default"
+                                                                                data-dismiss="modal"><i
+                                                                                    class="material-icons">cancel</i>
+                                                                        </button>
+                                                                        <button type="submit"
+                                                                                class="btn btn-danger">
+                                                                            <i class="material-icons">delete_forever</i>
+                                                                        </button>
+                                                                    </form>                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                                 <td>
                                                     <small>{{ \Carbon\Carbon::parse($period->start_time)->format('h:i a')  }}</small>
