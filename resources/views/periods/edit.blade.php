@@ -7,8 +7,9 @@
     <div class="row">
         <div class="well">
         <h2>Edit {{ $period->title }}</h2>
-        <form action="{{ url('periods') }}" method="POST" class="form-horizontal" role="form">
+        <form action="{{ url('periods/' . $period->id) }}" method="POST" class="form-horizontal" role="form">
                 
+                {{ method_field('patch') }}
                 {{ csrf_field() }}
 
                 @include('periods._form')

@@ -45,10 +45,10 @@
     });
 </script>
 <script src="/js/app.js"></script>
-<script>
+{{-- <script>
     $('#flash-overlay-modal').modal();
     $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
-</script>
+</script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 <script type="text/javascript">
     var path = "{{ route('autocomplete') }}";
