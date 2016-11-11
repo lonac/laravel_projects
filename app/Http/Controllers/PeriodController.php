@@ -79,9 +79,11 @@ class PeriodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $slug)
     {
-        //
+        $days = Day::all();
+        $period = Period::whereId($id)->whereSlug($slug)->first();
+        return view('periods.edit', compact('period', 'days'));
     }
 
     /**

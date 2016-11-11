@@ -223,10 +223,13 @@
                                         @foreach($church->periods as $period)
                                             <tr>
                                                 <th>{{ $period->day->name }}</th>
-                                                <td colspan="2"><a href="{{ url('#') }}">{{ $period->title }}</a></td>
+                                                <td colspan="2"><a href="{{ url('/') }}">{{ $period->title }}</a></td>
                                             </tr>
                                             <tr colspan="3">
-                                                <td>&nbsp;</td>
+                                                <td>
+                                                    <a href="{{ url('periods/' . $period->id . '/' . $period->slug . '/edit') }}">Edit</a> | 
+                                                    <a href="#">Delete</a>
+                                                </td>
                                                 <td>
                                                     <small>{{ \Carbon\Carbon::parse($period->start_time)->format('h:i a')  }}</small>
                                                 </td>

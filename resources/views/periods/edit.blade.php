@@ -1,12 +1,12 @@
 @extends('masterchurch')
-@section('title', 'Add a new period')
+@section('title', 'Edit ' . $period->title)
 
 @section('content')
 
 <div class="container">
     <div class="row">
         <div class="well">
-        <h2>Add a new period</h2>
+        <h2>Edit {{ $period->title }}</h2>
         <form action="{{ url('periods') }}" method="POST" class="form-horizontal" role="form">
                 
                 {{ csrf_field() }}
