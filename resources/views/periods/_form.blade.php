@@ -41,7 +41,7 @@
 </div>              
 <div class="checkbox">
     <label>
-        <input type="checkbox" name="published" value="1" @if($period->published == 1) checked="checked" @endif>
+        <input type="checkbox" name="published" value="1" @if(isset($period)) @if($period->published == 1) checked="checked" @endif  @endif>
         Published
     </label>
 </div>
