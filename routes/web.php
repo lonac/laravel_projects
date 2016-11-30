@@ -96,6 +96,7 @@ Route::post('church/other-name', 'ChurchController@otherNameStore');
 
 Route::get('periods', 'PeriodController@index');
 Route::get('periods/{id}/{slug}', 'PeriodController@show');
+Route::get('periods/create', 'PeriodController@create');
 Route::get('periods/{id}/{slug}/edit', 'PeriodController@edit');
 Route::post('periods', 'PeriodController@store');
 Route::patch('periods/{id}', 'PeriodController@update');

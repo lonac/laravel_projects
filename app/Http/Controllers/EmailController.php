@@ -70,7 +70,8 @@ class EmailController extends Controller
      */
     public function edit($id)
     {
-        $email = Email::findOrFail($id);
+        $church_id = Auth::user()->church->id;
+        $email = Email::whereChurchId($church_id)->whereId($id)->first();
         return view('emails.edit', compact('email'));
     }
 
